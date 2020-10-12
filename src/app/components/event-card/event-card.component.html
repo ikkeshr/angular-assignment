@@ -1,0 +1,18 @@
+<div class="event-card-root" [class.active]="active">
+    <div class="event-card-wrapper">
+        <div class="profile-pic-wrap">
+            <img class="profile-pic" [src]="eventOrganizerProfilePicPath">
+        </div>
+
+        <div class="content-wrap">
+            <div class="content-header">
+                <div class="content-header-title">
+                    <div class="content-event-title" [class.active]="active">{{ eventTitle }}</div>
+                    <div class="content-event-organizer" [class.active]="active">{{ eventOrganizer }}</div>
+                </div>
+                <div class="event-time" [class.active]="active">{{ eventDate |  date: 'MMM d, y'}}</div>
+            </div>
+            <div class="content-details" [class.active]="active">{{ eventOverview }}</div>
+        </div>
+    </div>
+</div>

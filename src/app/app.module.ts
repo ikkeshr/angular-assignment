@@ -11,6 +11,10 @@ import {MatButtonModule} from '@angular/material/button';
 import { TopMenuComponent } from './components/top-menu/top-menu.component';
 import { SearchBoxComponent } from './components/search-box/search-box.component';
 import { IconComponent } from './components/icon/icon.component';
+import { EventListComponent } from './components/event-list/event-list.component';
+import { EventCardComponent } from './components/event-card/event-card.component';
+
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,13 +22,16 @@ import { IconComponent } from './components/icon/icon.component';
     HomeComponent,
     TopMenuComponent,
     SearchBoxComponent,
-    IconComponent
+    IconComponent,
+    EventListComponent,
+    EventCardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatButtonModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

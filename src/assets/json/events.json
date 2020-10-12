@@ -1,8 +1,9 @@
 [
     {
+        "event_id": 1,
         "organizer": {
             "name": "David Lynch",
-            "profilePicturePath": "/path/to/image"
+            "profilePicturePath": "../../../assets/imgs/sample_profile_pic.jpeg"
         },
         "category": "Music",
         "subcategory": "POP",
@@ -17,6 +18,184 @@
         },
         "title": "Music Festival",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "pictures": [
+            {
+                "picture_path": "/path/to/file.jpg"
+            },
+            {
+                "picture_path": "/path/to/file.jpg"
+            }
+        ],
+        "location": {
+            "City": "New Orleans",
+            "Venue": "Hall",
+            "Address": "Some address"
+        },
+        "payment": {
+            "type": "Paid",
+            "pricing": [
+                {
+                    "ticket_name": "Standard",
+                    "price": "20",
+                    "currency": "USD"
+                },
+                {
+                    "ticket_name": "Premium",
+                    "price": "100",
+                    "currency": "USD"
+                },
+                {
+                    "ticket_name": "VIP",
+                    "price": "1000",
+                    "currency": "USD"
+                }
+            ],
+            "methods": [
+                {
+                    "card_name": "Mastercard"
+                },
+                {
+                    "card_name": "VISA"
+                },
+                {
+                    "card_name": "Cirrus"
+                }
+            ]
+        },
+        "restrictions": [
+            {
+                "type": "None"
+            }
+        ],
+        "attendance_count": 100,
+        "special_guests": {
+            "count": 2,
+            "names": [
+                {
+                    "name": "Special guest one",
+                    "picturePath": ""
+                },
+                {
+                    "name": "Special guest two",
+                    "picturePath": ""
+                }
+            ]
+        },
+        "additional_info": "",
+        "authorities_notified": [
+            { 
+                "authority": "Traffic Control"
+            }
+        ]
+    },
+    {
+        "event_id": 2,
+        "organizer": {
+            "name": "Olga Staromlynska",
+            "profilePicturePath": "../../../assets/imgs/profile-pic2.jpg"
+        },
+        "category": "Food & Drink",
+        "subcategory": "Meal",
+        "type": "Public",
+        "datetime": {
+            "occurence": "Monthly",
+            "occurence_date": "Every 1st day of the week",
+            "occurence_start_date": "2020-12-22",
+            "occurence_end_date": "2020-12-30",
+            "start_time": "17:00",
+            "end_time": "22:00"
+        },
+        "title": "Food Festival",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "pictures": [
+            {
+                "picture_path": "/path/to/file.jpg"
+            },
+            {
+                "picture_path": "/path/to/file.jpg"
+            }
+        ],
+        "location": {
+            "City": "New Orleans",
+            "Venue": "Hall",
+            "Address": "Some address"
+        },
+        "payment": {
+            "type": "Paid",
+            "pricing": [
+                {
+                    "ticket_name": "Standard",
+                    "price": "20",
+                    "currency": "USD"
+                },
+                {
+                    "ticket_name": "Premium",
+                    "price": "100",
+                    "currency": "USD"
+                },
+                {
+                    "ticket_name": "VIP",
+                    "price": "1000",
+                    "currency": "USD"
+                }
+            ],
+            "methods": [
+                {
+                    "card_name": "Mastercard"
+                },
+                {
+                    "card_name": "VISA"
+                },
+                {
+                    "card_name": "Cirrus"
+                }
+            ]
+        },
+        "restrictions": [
+            {
+                "type": "None"
+            }
+        ],
+        "attendance_count": 100,
+        "special_guests": {
+            "count": 2,
+            "names": [
+                {
+                    "name": "Special guest one",
+                    "picturePath": ""
+                },
+                {
+                    "name": "Special guest two",
+                    "picturePath": ""
+                }
+            ]
+        },
+        "additional_info": "",
+        "authorities_notified": [
+            { 
+                "authority": "Traffic Control"
+            }
+        ]
+    },
+    {
+        "event_id": 3,
+        "organizer": {
+            "name": "Pawel Schedler",
+            "profilePicturePath": "../../../assets/imgs/profile-pic1.jpeg"
+        },
+        "category": "Arts & Culture",
+        "subcategory": "Drawing",
+        "type": "Public",
+        "datetime": {
+            "occurence": "Monthly",
+            "occurence_date": "Every 1st day of the week",
+            "occurence_start_date": "2020-11-01",
+            "occurence_end_date": "2020-12-30",
+            "start_time": "08:00",
+            "end_time": "17:00"
+        },
+        "title": "Drawing Session",
+        "description": "Working together in a sprint, you can shortcut the endless-debate cycle and compress months of time.",
         "pictures": [
             {
                 "picture_path": "/path/to/file.jpg"

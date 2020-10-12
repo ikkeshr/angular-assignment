@@ -1,0 +1,12 @@
+<div class="event-list-root">
+    <app-event-card 
+        *ngFor="let event of eventList; let i=index"
+        [title]="event.title"
+        [organizer]="event.organizer.name"
+        [date]="event.datetime.occurence_start_date"
+        [overview]="event.description"
+        [profilepic]="event.organizer.profilePicturePath"
+        [active]="eventIdxActive===i"
+        (click)="selectEvent(i, event.event_id)"
+    ></app-event-card>
+</div>
