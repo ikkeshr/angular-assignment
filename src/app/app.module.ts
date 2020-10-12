@@ -13,7 +13,6 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 
 import { TopMenuComponent } from './components/top-menu/top-menu.component';
 import { SearchBoxComponent } from './components/search-box/search-box.component';
-import { IconComponent } from './components/icon/icon.component';
 import { EventListComponent } from './components/event-list/event-list.component';
 import { EventCardComponent } from './components/event-card/event-card.component';
 
@@ -28,7 +27,6 @@ import { CreateEventComponent } from './components/create-event/create-event.com
     HomeComponent,
     TopMenuComponent,
     SearchBoxComponent,
-    IconComponent,
     EventListComponent,
     EventCardComponent,
     CreateEventComponent
