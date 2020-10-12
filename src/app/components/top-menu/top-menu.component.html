@@ -1,6 +1,6 @@
 <div class="root">
     <div class="wrapper">
-        <div class="logo-wrap">
+        <div class="logo-wrap" routerLink="/">
             <img class="logo" src="../../../assets/logo/logo.png">
         </div>
 
@@ -9,20 +9,22 @@
         </div>
 
         <div class="right">
-            <div class="notification-wrap">
-                <app-icon src="../../../assets/icons/notifications-black-18dp.svg"></app-icon>
+            <div class="icon-wrap">
+                <mat-icon svgIcon="notification" matBadge="2" matBadgeColor="warn" matBadgeSize="small" matTooltip="Notifications"></mat-icon>
+                <!-- <app-icon src="../../../assets/icons/notifications-black-18dp.svg"></app-icon> -->
             </div>
 
             <div class="profile-pic-wrap">
-                <img class="profile-pic" src="../../../assets/imgs/sample_profile_pic.jpeg">
+                <img class="profile-pic" src="../../../assets/imgs/sample_profile_pic.jpeg" matTooltip="Profile">
             </div>
 
-            <div class="create-event-btn">
+            <div class="create-event-btn" routerLink="create" matTooltip="Create a new event">
                 <span>• CREATE EVENT</span>
             </div>
 
-            <div class="settings-wrap">
-                <app-icon src="../../../assets/icons/reorder-black-24dp.svg"></app-icon>
+            <div class="icon-wrap">
+                <mat-icon svgIcon="reorder" matTooltip="Settings"></mat-icon>
+                <!-- <app-icon src="../../../assets/icons/reorder-black-24dp.svg"></app-icon> -->
             </div>
             
         </div>

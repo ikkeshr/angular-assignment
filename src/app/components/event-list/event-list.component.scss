@@ -4,4 +4,8 @@
     overflow-x: visible;
     padding: 0px 4px;
     // width: 50%;
+
+    app-event-card:focus {
+        outline: none;
+    }
 }

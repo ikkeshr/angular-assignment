@@ -6,7 +6,6 @@
         [date]="event.datetime.occurence_start_date"
         [overview]="event.description"
         [profilepic]="event.organizer.profilePicturePath"
-        [active]="eventIdxActive===i"
-        (click)="selectEvent(i, event.event_id)"
+        [routerLink]="['event', event.event_id]"
     ></app-event-card>
 </div>

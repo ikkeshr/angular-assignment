@@ -6,7 +6,10 @@
         <app-event-list></app-event-list>
         
         <div class="home-body-content-wrap">
-            <p>body content</p>
+            <div class="home-body-content-placeholder" *ngIf="showPlaceholder">
+                <h1>Create or Edit Events</h1>
+            </div>
+            <router-outlet (activate)="routerActivate($event)" (deactivate)="routerDeactivate($event)"></router-outlet>
         </div>
     </div>
 </div>

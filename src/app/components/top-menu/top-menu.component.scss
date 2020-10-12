@@ -27,15 +27,19 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            
+            cursor: pointer;
             .logo {
                 width: 150px;
+            }
+            &:focus {
+                outline: none;
             }
         }
 
         .search-box-wrap {
             // margin-left: 70px;
             min-width: 300px;
+            // width: 50%;
         }
 
         .right {
@@ -74,6 +78,14 @@
                 padding: 6px;
                 border-radius: 15px;
                 text-align: center;
+                &:focus {
+                    outline: none;
+                }
+            }
+
+            .icon-wrap {
+                margin-top: 5px;
+                cursor: pointer;
             }
         }
     }
