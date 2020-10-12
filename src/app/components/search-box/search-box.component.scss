@@ -8,11 +8,13 @@
     .input-wrap {
         display: flex;
         // padding: 4px 0px 4px 16px;
+        // padding: 8px 0px;
         padding-left: 16px;
         width: 100%;
         border-radius: 18px;
         box-shadow: -3px 4px 37px -3px rgba(137,190,250,1);
         border: none;
+        // border: solid black 1px;
 
         // &:focus-within {
         //     box-shadow: -5px 4px 23px 4px rgba(187,217,250,1);
@@ -28,10 +30,12 @@
         }
 
         .search-icon-wrap {
-            
+            height: 100%;
+            margin-left: auto;
+            order: 2;
             .search-icon {
                 border-radius: 50%;
-                padding: 4px;
+                padding: 8px;
                 width: 16px;
                 height: 16px;
                 border: none;

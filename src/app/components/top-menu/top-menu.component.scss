@@ -36,10 +36,19 @@
             }
         }
 
-        .search-box-wrap {
-            // margin-left: 70px;
-            min-width: 300px;
-            // width: 50%;
+        .center {
+            width: 100%;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .search-box-wrap {
+                // margin-left: 70px;
+                min-width: 300px;
+                max-width: 350px;
+                width: 50%;
+            }
         }
 
         .right {
