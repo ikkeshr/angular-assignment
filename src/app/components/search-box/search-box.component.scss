@@ -1,0 +1,45 @@
+.root {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .input-wrap {
+        display: flex;
+        // padding: 4px 0px 4px 16px;
+        padding-left: 16px;
+        width: 100%;
+        border-radius: 18px;
+        box-shadow: -3px 4px 37px -3px rgba(137,190,250,1);
+        border: none;
+
+        // &:focus-within {
+        //     box-shadow: -5px 4px 23px 4px rgba(187,217,250,1);
+        // }
+        
+        .search-input {
+            border: none;
+            width: 90%;
+            // padding: 4px 0px; 
+            &:focus {
+                outline: none;
+            }
+        }
+
+        .search-icon-wrap {
+            
+            .search-icon {
+                border-radius: 50%;
+                padding: 4px;
+                width: 16px;
+                height: 16px;
+                border: none;
+                cursor: pointer;
+                justify-content: center;
+                background: var(--theme-color) url("../../../assets/icons/search-white-18dp.svg") no-repeat center center;
+            }
+        }
+        
+    }
+}

@@ -1,0 +1,90 @@
+[
+    {
+        "organizer": {
+            "name": "David Lynch",
+            "profilePicturePath": "/path/to/image"
+        },
+        "category": "Music",
+        "subcategory": "POP",
+        "type": "Public",
+        "datetime": {
+            "occurence": "Monthly",
+            "occurence_date": "Every 1st day of the month",
+            "occurence_start_date": "2018-03-22",
+            "occurence_end_date": "2018-07-23",
+            "start_time": "11:00",
+            "end_time": "12:00"
+        },
+        "title": "Music Festival",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "pictures": [
+            {
+                "picture_path": "/path/to/file.jpg"
+            },
+            {
+                "picture_path": "/path/to/file.jpg"
+            }
+        ],
+        "location": {
+            "City": "New Orleans",
+            "Venue": "Hall",
+            "Address": "Some address"
+        },
+        "payment": {
+            "type": "Paid",
+            "pricing": [
+                {
+                    "ticket_name": "Standard",
+                    "price": "20",
+                    "currency": "USD"
+                },
+                {
+                    "ticket_name": "Premium",
+                    "price": "100",
+                    "currency": "USD"
+                },
+                {
+                    "ticket_name": "VIP",
+                    "price": "1000",
+                    "currency": "USD"
+                }
+            ],
+            "methods": [
+                {
+                    "card_name": "Mastercard"
+                },
+                {
+                    "card_name": "VISA"
+                },
+                {
+                    "card_name": "Cirrus"
+                }
+            ]
+        },
+        "restrictions": [
+            {
+                "type": "None"
+            }
+        ],
+        "attendance_count": 100,
+        "special_guests": {
+            "count": 2,
+            "names": [
+                {
+                    "name": "Special guest one",
+                    "picturePath": ""
+                },
+                {
+                    "name": "Special guest two",
+                    "picturePath": ""
+                }
+            ]
+        },
+        "additional_info": "",
+        "authorities_notified": [
+            { 
+                "authority": "Traffic Control"
+            }
+        ]
+    }
+]

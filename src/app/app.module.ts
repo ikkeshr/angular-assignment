@@ -8,16 +8,23 @@ import { HomeComponent } from './components/home/home.component';
 
 import {MatButtonModule} from '@angular/material/button';
 
+import { TopMenuComponent } from './components/top-menu/top-menu.component';
+import { SearchBoxComponent } from './components/search-box/search-box.component';
+import { IconComponent } from './components/icon/icon.component';
+
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    TopMenuComponent,
+    SearchBoxComponent,
+    IconComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatButtonModule
+    MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
