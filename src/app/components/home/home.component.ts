@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-home',
@@ -9,10 +10,12 @@ export class HomeComponent implements OnInit {
 
   showPlaceholder: boolean = true;
 
-  constructor() { }
+  constructor(
+    private titleService: Title
+  ) { }
 
   ngOnInit(): void {
-    
+    this.titleService.setTitle("Event");
   }
 
   public routerActivate(event: any): void {
@@ -23,6 +26,7 @@ export class HomeComponent implements OnInit {
   public routerDeactivate(event: any): void {
     // console.log(event);
     this.showPlaceholder = true;
+    this.titleService.setTitle("Event");
   }
 
 }

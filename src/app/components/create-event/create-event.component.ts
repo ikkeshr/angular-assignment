@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { EventService } from '../../services/event.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-create-event',
@@ -13,7 +14,8 @@ export class CreateEventComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private eventService: EventService
+    private eventService: EventService,
+    private titleService: Title,
   ) { }
 
   ngOnInit(): void {
@@ -23,7 +25,11 @@ export class CreateEventComponent implements OnInit {
         this.eventService.loadEventById(params.id).subscribe(event => {
           // console.log(event);
           this.updateEvent = event;
+          this.titleService.setTitle(event.title);
         });
+      }
+      else {
+        this.titleService.setTitle("Create Event");
       }
     });
   }
