@@ -1,0 +1,16 @@
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+$event-app-primary: mat-palette($mat-blue, A200, A100, A400);
+$event-app-accent:  mat-palette($mat-pink, A200, A100, A400);
+
+
+$event-app-theme: mat-light-theme((
+    color: (
+      primary: $event-app-primary,
+      accent: $event-app-accent
+    )
+  ));
+
+  @include angular-material-theme($event-app-theme);
