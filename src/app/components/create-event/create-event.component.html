@@ -1,9 +1,48 @@
 
 <mat-horizontal-stepper>
+
     <mat-step label="General Information">
-        <button mat-stroked-button matStepperNext color="primary">Next</button>
+        <form class="step-form">
+            <div class="footer-btn">
+                <div class="footer-right">
+                    <button type="button" mat-raised-button matStepperNext color="primary">Next</button>
+                </div>
+            </div>
+        </form>
     </mat-step>
-    <mat-step label="Pricing and Location"></mat-step>
-    <mat-step label="Additional Information"></mat-step>
-    <mat-step label="Summary"></mat-step> 
+
+    <mat-step label="Pricing and Location">
+        <form class="step-form">
+            <div class="footer-btn">
+                <button type="button" mat-stroked-button matStepperBack color="primary">Back</button>
+                <div class="footer-right">
+                    <button type="button" mat-raised-button matStepperNext color="primary">Next</button>
+                </div>
+            </div>
+        </form>
+    </mat-step>
+
+    <mat-step label="Additional Information">
+        <form class="step-form">
+            <div class="footer-btn">
+                <button type="button" mat-stroked-button matStepperBack color="primary">Back</button>
+                <div class="footer-right">
+                    <button type="button" mat-raised-button matStepperNext color="primary">Next</button>
+                </div>
+            </div>
+        </form>
+    </mat-step>
+
+    <mat-step label="Summary">
+        <form class="step-form">
+            <div class="footer-btn">
+                <button type="button" mat-stroked-button matStepperBack color="primary">Back</button>
+                <div class="footer-right">
+                    <button type="button" mat-stroked-button color="primary">Save as template</button>
+                    <button type="button" mat-raised-button matStepperNext color="primary">Next</button>
+                </div>
+            </div>
+        </form>
+    </mat-step> 
+
 </mat-horizontal-stepper>

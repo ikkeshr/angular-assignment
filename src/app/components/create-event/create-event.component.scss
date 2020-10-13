@@ -1,0 +1,13 @@
+.step-form {
+    .footer-btn {
+        display: flex;
+        .footer-right {
+            margin-left: auto;
+            order: 2;
+
+            & > button {
+                margin-left: 10px;
+            }
+        }
+    }
+}
