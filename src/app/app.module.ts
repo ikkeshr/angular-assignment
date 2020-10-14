@@ -19,6 +19,7 @@ import { EventCardComponent } from './components/event-card/event-card.component
 
 import { HttpClientModule } from '@angular/common/http';
 import { CreateEventComponent } from './components/create-event/create-event.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -42,6 +43,7 @@ import { CreateEventComponent } from './components/create-event/create-event.com
     MatBadgeModule,
     MatTooltipModule,
     MatStepperModule,
+    ReactiveFormsModule,
   ],
   providers: [Title],
   bootstrap: [AppComponent]

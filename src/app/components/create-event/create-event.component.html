@@ -2,7 +2,18 @@
 <mat-horizontal-stepper>
 
     <mat-step label="General Information">
-        <form class="step-form">
+        <form class="step-form" [formGroup]="generalInfoForm">
+            <div class="step-form-body">
+                <div class="step-form-body-section" [class.first]="true">
+                    <div class="step-form-body-section-header"><div class="title"><span class="number">1</span>What is the Category of your Event?</div></div>
+                    <div class="step-form-body-section-body"><input type="text" formControlName="category"></div>
+                    <div class="step-form-body-section-header"><p >Select Subcategory</p></div>
+                </div>
+                <div class="step-form-body-section">
+                    <div class="step-form-body-section-header"><div class="title"><span class="number">2</span>Is this a private or Public Event?</div></div>
+                    <div class="step-form-body-section-body"><input type="text"></div>
+                </div>
+            </div>
             <div class="footer-btn">
                 <div class="footer-right">
                     <button type="button" mat-raised-button matStepperNext color="primary">Next</button>
@@ -12,7 +23,7 @@
     </mat-step>
 
     <mat-step label="Pricing and Location">
-        <form class="step-form">
+        <form class="step-form" [formGroup]="pricingLocationForm">
             <div class="footer-btn">
                 <button type="button" mat-stroked-button matStepperPrevious color="primary">Back</button>
                 <div class="footer-right">
@@ -23,7 +34,7 @@
     </mat-step>
 
     <mat-step label="Additional Information">
-        <form class="step-form">
+        <form class="step-form" [formGroup]="additionalInfoForm">
             <div class="footer-btn">
                 <button type="button" mat-stroked-button matStepperPrevious color="primary">Back</button>
                 <div class="footer-right">
@@ -34,15 +45,16 @@
     </mat-step>
 
     <mat-step label="Summary">
-        <form class="step-form">
+        <div class="step-form">
             <div class="footer-btn">
                 <button type="button" mat-stroked-button matStepperPrevious color="primary">Back</button>
                 <div class="footer-right">
                     <button type="button" mat-stroked-button color="primary">Save as template</button>
-                    <button type="button" mat-raised-button matStepperNext color="primary">Next</button>
+                    <button *ngIf="!updateEvent" type="button" mat-raised-button matStepperNext color="primary">Create</button>
+                    <button *ngIf="updateEvent" type="button" mat-raised-button matStepperNext color="primary">Save</button>
                 </div>
             </div>
-        </form>
+        </div>
     </mat-step> 
 
 </mat-horizontal-stepper>
