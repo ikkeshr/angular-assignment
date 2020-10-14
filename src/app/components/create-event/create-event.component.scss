@@ -36,6 +36,21 @@
                 display: flex;
                 flex-direction: column;
                 align-items: center;
+
+                .input {
+                    width: 80%;
+                    padding: 8px;
+                    border: solid var(--theme-color-light) 1px;
+                    &:focus {
+                        outline: none;
+                        border-color: var(--theme-color);
+                    }
+                }
+                .textarea {
+                    height: 70px;
+                    resize: none;
+                    font-family: inherit;
+                }
             }
         }
     }

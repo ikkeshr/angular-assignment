@@ -26,7 +26,9 @@ export class CreateEventComponent implements OnInit {
     this.generalInfoForm = this.formBuilder.group({
       category: ['', Validators.required],
       subcategory: ['', Validators.required],
-      type: ['', Validators.required]
+      type: ['', Validators.required],
+      title: ['', Validators.required],
+      description: ['', Validators.required]
     });
     this.pricingLocationForm = this.formBuilder.group({
       price: ['', Validators.required]
@@ -45,8 +47,14 @@ export class CreateEventComponent implements OnInit {
           this.updateEvent = event;
           this.titleService.setTitle(event.title);
           
-          this.setCategory(event);
-          this.setType(event.type);
+          // Set values in the form for update
+          this.generalInfoForm.patchValue({
+            title:event.title,
+            description: event.description,
+            category: event.category,
+            subcategory: event.subcategory,
+            type: event.type
+          })
         });
       }
       else {
