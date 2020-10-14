@@ -25,7 +25,8 @@ export class CreateEventComponent implements OnInit {
   ) {
     this.generalInfoForm = this.formBuilder.group({
       category: ['', Validators.required],
-      subcategory: ['', Validators.required]
+      subcategory: ['', Validators.required],
+      type: ['', Validators.required]
     });
     this.pricingLocationForm = this.formBuilder.group({
       price: ['', Validators.required]
@@ -40,10 +41,12 @@ export class CreateEventComponent implements OnInit {
       // console.log(params);
       if (params.id) {
         this.eventService.loadEventById(params.id).subscribe(event => {
-          console.log(event);
+          // console.log(event);
           this.updateEvent = event;
           this.titleService.setTitle(event.title);
+          
           this.setCategory(event);
+          this.setType(event.type);
         });
       }
       else {
@@ -53,10 +56,14 @@ export class CreateEventComponent implements OnInit {
   }
 
   setCategory(event: any): void {
-    this.generalInfoForm.setValue({
+    this.generalInfoForm.patchValue({
       category: event.category,
       subcategory: event.subcategory
     });
+  }
+
+  setType(event: any): void {
+    this.generalInfoForm.patchValue({type:event});
   }
 
   test() {

@@ -1,0 +1,29 @@
+.toggle-root {
+    width: fit-content;
+    // background-color: aqua;
+    .toggle-wrap {
+        display: flex;
+        width: fit-content;
+        padding: 5px;
+        border-radius: 30px;
+        background-color: var(--theme-color-light);
+        .text {
+            color: white;
+            padding: 10px 40px;
+            cursor: pointer;
+            // background-color: var(--theme-color-light);
+            &.selected {
+                background-color: var(--theme-color-dark);
+            }
+        }
+        .left-text {
+            border-top-left-radius: 30px;
+            border-bottom-left-radius: 30px;
+        }
+        .right-text {
+            border-top-right-radius: 30px;
+            border-bottom-right-radius: 30px;
+            
+        }
+    }
+}

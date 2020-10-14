@@ -1,0 +1,6 @@
+<div class="toggle-root">
+    <div class="toggle-wrap">
+        <div class="text left-text" (click)="onSelect(leftText)" [class.selected]="selectedValue===leftText">{{ leftText }}</div>
+        <div class="text right-text" (click)="onSelect(rightText)" [class.selected]="selectedValue===rightText">{{ rightText }}</div>
+    </div>
+</div>

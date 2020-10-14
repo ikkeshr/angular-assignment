@@ -22,6 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CreateEventComponent } from './components/create-event/create-event.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CategoryInputComponent } from './components/category-input/category-input.component';
+import { ToggleComponent } from './components/toggle/toggle.component';
 
 
 
@@ -34,7 +35,8 @@ import { CategoryInputComponent } from './components/category-input/category-inp
     EventListComponent,
     EventCardComponent,
     CreateEventComponent,
-    CategoryInputComponent
+    CategoryInputComponent,
+    ToggleComponent
   ],
   imports: [
     BrowserModule,
