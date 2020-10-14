@@ -91,7 +91,7 @@
             "profilePicturePath": "../../../assets/imgs/profile-pic2.jpg"
         },
         "category": "Food & Drink",
-        "subcategory": "Meal",
+        "subcategory": "Rice",
         "type": "Public",
         "datetime": {
             "occurence": "Monthly",
@@ -175,8 +175,8 @@
             "name": "Pawel Schedler",
             "profilePicturePath": "../../../assets/imgs/profile-pic1.jpeg"
         },
-        "category": "Arts & Culture",
-        "subcategory": "Drawing",
+        "category": "Art & Culture",
+        "subcategory": "Cinema",
         "type": "Public",
         "datetime": {
             "occurence": "Monthly",

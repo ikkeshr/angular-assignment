@@ -11,6 +11,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatStepperModule} from '@angular/material/stepper';
+import {MatChipsModule} from '@angular/material/chips';
 
 import { TopMenuComponent } from './components/top-menu/top-menu.component';
 import { SearchBoxComponent } from './components/search-box/search-box.component';
@@ -20,6 +21,7 @@ import { EventCardComponent } from './components/event-card/event-card.component
 import { HttpClientModule } from '@angular/common/http';
 import { CreateEventComponent } from './components/create-event/create-event.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CategoryInputComponent } from './components/category-input/category-input.component';
 
 
 
@@ -31,7 +33,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     SearchBoxComponent,
     EventListComponent,
     EventCardComponent,
-    CreateEventComponent
+    CreateEventComponent,
+    CategoryInputComponent
   ],
   imports: [
     BrowserModule,
@@ -44,6 +47,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatTooltipModule,
     MatStepperModule,
     ReactiveFormsModule,
+    MatChipsModule
   ],
   providers: [Title],
   bootstrap: [AppComponent]

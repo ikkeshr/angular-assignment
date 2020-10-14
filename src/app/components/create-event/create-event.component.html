@@ -1,13 +1,12 @@
 
-<mat-horizontal-stepper>
+<mat-horizontal-stepper linear>
 
     <mat-step label="General Information">
         <form class="step-form" [formGroup]="generalInfoForm">
             <div class="step-form-body">
-                <div class="step-form-body-section" [class.first]="true">
+                <div class="step-form-body-section" [class.first]="true" style="min-height:312px;">
                     <div class="step-form-body-section-header"><div class="title"><span class="number">1</span>What is the Category of your Event?</div></div>
-                    <div class="step-form-body-section-body"><input type="text" formControlName="category"></div>
-                    <div class="step-form-body-section-header"><p >Select Subcategory</p></div>
+                    <app-category-input (values)="setCategory($event)" [category]="(updateEvent) ? (updateEvent.category) : ''" [subcategory]="(updateEvent) ? (updateEvent.subcategory) : ''"></app-category-input>
                 </div>
                 <div class="step-form-body-section">
                     <div class="step-form-body-section-header"><div class="title"><span class="number">2</span>Is this a private or Public Event?</div></div>
@@ -16,7 +15,7 @@
             </div>
             <div class="footer-btn">
                 <div class="footer-right">
-                    <button type="button" mat-raised-button matStepperNext color="primary">Next</button>
+                    <button type="button" mat-raised-button matStepperNext color="primary" (click)="test()">Next</button>
                 </div>
             </div>
         </form>

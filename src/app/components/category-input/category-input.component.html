@@ -1,0 +1,15 @@
+<div class="cat-input-root">
+    <div class="cat-input-wrap">
+        <div class="cat-input-item" *ngFor="let item of categories" (click)="selectCategory(item.category)">
+            <div class="logo" [class.selected]="selectedCategory===item.category"><span class="material-icons">{{ item.mat_logo }}</span></div>
+            <div class="label">{{ item.category }}</div>
+        </div>
+    </div>
+
+    <div class="subcat-input-wrap" *ngIf="selectedCategory!=''">
+        <div class="heading">Select Subcategory</div>
+        <mat-chip-list>
+            <mat-chip *ngFor="let item of getSelectedCategorySubs().subcategories" (click)="selectSubCategory(item)" [selected]="selectedSubCategory===item">{{ item }}</mat-chip>
+        </mat-chip-list>
+    </div>
+</div>
