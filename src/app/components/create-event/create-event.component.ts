@@ -74,6 +74,10 @@ export class CreateEventComponent implements OnInit {
     this.generalInfoForm.patchValue({type:event});
   }
 
+  setDate(event: any): void {
+    console.log(event);
+  }
+
   test() {
     console.log(this.generalInfoForm.value);
   }

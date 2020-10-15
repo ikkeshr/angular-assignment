@@ -12,6 +12,10 @@ import {MatBadgeModule} from '@angular/material/badge';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatChipsModule} from '@angular/material/chips';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatInputModule} from '@angular/material/input';
 
 import { TopMenuComponent } from './components/top-menu/top-menu.component';
 import { SearchBoxComponent } from './components/search-box/search-box.component';
@@ -23,6 +27,8 @@ import { CreateEventComponent } from './components/create-event/create-event.com
 import { ReactiveFormsModule } from '@angular/forms';
 import { CategoryInputComponent } from './components/category-input/category-input.component';
 import { ToggleComponent } from './components/toggle/toggle.component';
+import { InputDateComponent } from './components/input-date/input-date.component';
+import { MatNativeDateModule } from '@angular/material/core';
 
 
 
@@ -36,7 +42,8 @@ import { ToggleComponent } from './components/toggle/toggle.component';
     EventCardComponent,
     CreateEventComponent,
     CategoryInputComponent,
-    ToggleComponent
+    ToggleComponent,
+    InputDateComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +56,12 @@ import { ToggleComponent } from './components/toggle/toggle.component';
     MatTooltipModule,
     MatStepperModule,
     ReactiveFormsModule,
-    MatChipsModule
+    MatChipsModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatInputModule
   ],
   providers: [Title],
   bootstrap: [AppComponent]

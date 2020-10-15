@@ -9,8 +9,8 @@
         "subcategory": "POP",
         "type": "Public",
         "datetime": {
-            "occurence": "Monthly",
-            "occurence_date": "Every 1st day of the month",
+            "occurence": "Weekly",
+            "occurence_date": "Every 1st day of the week",
             "occurence_start_date": "2018-03-22",
             "occurence_end_date": "2018-07-23",
             "start_time": "11:00",
@@ -95,7 +95,7 @@
         "type": "Public",
         "datetime": {
             "occurence": "Monthly",
-            "occurence_date": "Every 1st day of the week",
+            "occurence_date": "Every 1st day of the month",
             "occurence_start_date": "2020-12-22",
             "occurence_end_date": "2020-12-30",
             "start_time": "17:00",
@@ -180,7 +180,7 @@
         "type": "Private",
         "datetime": {
             "occurence": "Monthly",
-            "occurence_date": "Every 1st day of the week",
+            "occurence_date": "Mid month",
             "occurence_start_date": "2020-11-01",
             "occurence_end_date": "2020-12-30",
             "start_time": "08:00",

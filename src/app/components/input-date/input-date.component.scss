@@ -1,0 +1,17 @@
+.date-input-head {
+
+    .head-item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+}
+
+.date-input-body {
+    .date-input-range {
+        .date-input-range-item {
+            padding: 0px 10px;
+        }
+    }
+}

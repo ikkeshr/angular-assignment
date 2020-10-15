@@ -14,6 +14,14 @@
                 </div>
                 <div class="step-form-body-section">
                     <div class="step-form-body-section-header"><div class="title"><span class="number">3</span>When will this Event be?</div></div>
+                    <div class="step-form-body-section-body">
+                        <app-input-date 
+                            [occurence]="(updateEvent) ? (updateEvent.datetime.occurence) : ''" 
+                            [occurence_date]="(updateEvent) ? (updateEvent.datetime.occurence_date) : ''"
+                            [start_date]="(updateEvent) ? (updateEvent.datetime.occurence_start_date) : ''"
+                            [end_date]="(updateEvent) ? (updateEvent.datetime.occurence_end_date) : ''"
+                            (onChange)="setDate($event)"></app-input-date>
+                    </div>
                 </div>
                 <div class="step-form-body-section">
                     <div class="step-form-body-section-header"><div class="title"><span class="number">4</span>Event Title</div></div>
