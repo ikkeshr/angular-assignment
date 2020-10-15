@@ -13,9 +13,9 @@ export class CreateEventComponent implements OnInit {
 
   updateEvent: any;
 
-  generalInfoForm: FormGroup;
-  pricingLocationForm: FormGroup;
-  additionalInfoForm: FormGroup;
+  generalInfoForm: FormGroup; generalFormSubmmited: boolean = false;
+  pricingLocationForm: FormGroup; pricingLocationFormSubmitted: boolean = false;
+  additionalInfoForm: FormGroup; additionalInfoFormSubmitted: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -92,6 +92,8 @@ export class CreateEventComponent implements OnInit {
 
   test() {
     console.log(this.generalInfoForm.value);
+    this.generalFormSubmmited = true;
+    console.log(this.generalInfoForm.get('datetime').invalid);
   }
 
   updateForm(event: any): void {

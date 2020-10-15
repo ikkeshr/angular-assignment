@@ -13,6 +13,9 @@
             &.first {
                 margin-top: 0px;
             }
+            &.error {
+                border-color: crimson;
+            }
 
             .step-form-body-section-header {
                 // background-color: aqua;
@@ -28,6 +31,11 @@
                         margin-right: 6px;
                     }
                     font-size: 18px;
+                }
+                .section-error {
+                    margin-top: 8px;
+                    color: crimson;
+                    font-size: 14px;
                 }
             }
 

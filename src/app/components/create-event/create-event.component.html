@@ -3,17 +3,26 @@
 
     <mat-step label="General Information">
         <form class="step-form" [formGroup]="generalInfoForm">
-            <div class="step-form-body">
-                <div class="step-form-body-section" [class.first]="true" style="min-height:312px;">
-                    <div class="step-form-body-section-header"><div class="title"><span class="number">1</span>What is the Category of your Event?</div></div>
+            <div class="step-form-body" >
+                <div class="step-form-body-section" [class.first]="true" style="min-height:312px;" [class.error]="( generalInfoForm.get('category').hasError('required') || generalInfoForm.get('subcategory').hasError('required') ) && generalFormSubmmited">
+                    <div class="step-form-body-section-header">
+                        <div class="title"><span class="number">1</span>What is the Category of your Event?</div>
+                        <div class="section-error" *ngIf="( generalInfoForm.get('category').hasError('required') || generalInfoForm.get('subcategory').hasError('required') ) && generalFormSubmmited"><span>Please Choose a category</span></div>
+                    </div>
                     <app-category-input (values)="setCategory($event)" [category]="(updateEvent) ? (updateEvent.category) : ''" [subcategory]="(updateEvent) ? (updateEvent.subcategory) : ''"></app-category-input>
                 </div>
-                <div class="step-form-body-section">
-                    <div class="step-form-body-section-header"><div class="title"><span class="number">2</span>Is this a Private or Public Event?</div></div>
+                <div class="step-form-body-section" [class.error]="generalInfoForm.get('type').hasError('required') && generalFormSubmmited">
+                    <div class="step-form-body-section-header">
+                        <div class="title"><span class="number">2</span>Is this a Private or Public Event?</div>
+                        <div class="section-error" *ngIf="generalInfoForm.get('type').hasError('required') && generalFormSubmmited"><span>Please select a type</span></div>
+                    </div>
                     <div class="step-form-body-section-body"><app-toggle leftText="Private" rightText="Public" [select]="(updateEvent) ? (updateEvent.type) : ''" (onChange)="setType($event)"></app-toggle></div>
                 </div>
-                <div class="step-form-body-section">
-                    <div class="step-form-body-section-header"><div class="title"><span class="number">3</span>When will this Event be?</div></div>
+                <div class="step-form-body-section" [class.error]="this.generalInfoForm.get('datetime').invalid && generalFormSubmmited">
+                    <div class="step-form-body-section-header">
+                        <div class="title"><span class="number">3</span>When will this Event be?</div>
+                        <div class="section-error" *ngIf="this.generalInfoForm.get('datetime').invalid && generalFormSubmmited">Please fill in all fields</div>
+                    </div>
                     <div class="step-form-body-section-body">
                         <app-input-date 
                             [occurence]="(updateEvent) ? (updateEvent.datetime.occurence) : ''" 
@@ -25,12 +34,18 @@
                             (onChange)="setDate($event)"></app-input-date>
                     </div>
                 </div>
-                <div class="step-form-body-section">
-                    <div class="step-form-body-section-header"><div class="title"><span class="number">4</span>Event Title</div></div>
+                <div class="step-form-body-section" [class.error]="generalInfoForm.controls.title.errors && generalFormSubmmited">
+                    <div class="step-form-body-section-header">
+                        <div class="title"><span class="number">4</span>Event Title</div>
+                        <div class="section-error" *ngIf="generalInfoForm.get('title').hasError('required') && generalFormSubmmited"><span>Please Fill in the field properly</span></div>
+                    </div>
                     <div class="step-form-body-section-body"><input class="input" type="text" formControlName="title"></div>
                 </div>
-                <div class="step-form-body-section">
-                    <div class="step-form-body-section-header"><div class="title"><span class="number">5</span>What is this Event about?</div></div>
+                <div class="step-form-body-section" [class.error]="generalInfoForm.get('description').hasError('required') && generalFormSubmmited">
+                    <div class="step-form-body-section-header">
+                        <div class="title"><span class="number">5</span>What is this Event about?</div>
+                        <div class="section-error" *ngIf="generalInfoForm.get('description').hasError('required') && generalFormSubmmited"><span>Please in in the field</span></div>
+                    </div>
                     <div class="step-form-body-section-body"><textarea class="input textarea" formControlName="description"></textarea></div>
                 </div>
                 <div class="step-form-body-section">
@@ -45,6 +60,7 @@
         </form>
     </mat-step>
 
+    <!--=============================================================================================================================================================================================================================-->
     <mat-step label="Pricing and Location">
         <form class="step-form" [formGroup]="pricingLocationForm">
             <div class="footer-btn">
@@ -56,6 +72,8 @@
         </form>
     </mat-step>
 
+    <!--=============================================================================================================================================================================================================================-->
+
     <mat-step label="Additional Information">
         <form class="step-form" [formGroup]="additionalInfoForm">
             <div class="footer-btn">
@@ -66,6 +84,8 @@
             </div>
         </form>
     </mat-step>
+
+     <!--=============================================================================================================================================================================================================================-->
 
     <mat-step label="Summary">
         <div class="step-form">

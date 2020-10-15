@@ -20,7 +20,7 @@
     <div class="date-input-range">
         <mat-form-field class="date-input-range-item" appearance="outline">
             <mat-label>Starts</mat-label>
-            <input matInput [matDatepicker]="startdate" [value]="start_date" [min]="currentDate" autocomplete="off" (dateChange)="startDateChange($event)">
+            <input matInput  [matDatepicker]="startdate" [value]="start_date" [min]="currentDate" autocomplete="off" (dateChange)="startDateChange($event)">
             <mat-datepicker-toggle matSuffix [for]="startdate"></mat-datepicker-toggle>
             <mat-datepicker #startdate></mat-datepicker>   
         </mat-form-field>
