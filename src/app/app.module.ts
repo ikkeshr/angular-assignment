@@ -21,6 +21,7 @@ import { TopMenuComponent } from './components/top-menu/top-menu.component';
 import { SearchBoxComponent } from './components/search-box/search-box.component';
 import { EventListComponent } from './components/event-list/event-list.component';
 import { EventCardComponent } from './components/event-card/event-card.component';
+import { MatNativeDateModule } from '@angular/material/core';
 
 import { HttpClientModule } from '@angular/common/http';
 import { CreateEventComponent } from './components/create-event/create-event.component';
@@ -28,7 +29,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CategoryInputComponent } from './components/category-input/category-input.component';
 import { ToggleComponent } from './components/toggle/toggle.component';
 import { InputDateComponent } from './components/input-date/input-date.component';
-import { MatNativeDateModule } from '@angular/material/core';
+
+import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 
 
 
@@ -61,7 +63,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatSelectModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatInputModule
+    MatInputModule,
+    NgxMaterialTimepickerModule
   ],
   providers: [Title],
   bootstrap: [AppComponent]

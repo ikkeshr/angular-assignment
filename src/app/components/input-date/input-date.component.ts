@@ -11,6 +11,8 @@ export class InputDateComponent implements OnInit {
   @Output('onChange') emitter = new EventEmitter();
   @Input('start_date') start_date: string = "";
   @Input('end_date') end_date: string = "";
+  @Input('start_time') start_occ_time: string = "";
+  @Input('end_time') end_occ_time: string = "";
 
   occurences: any[] = [
     {
@@ -47,18 +49,30 @@ export class InputDateComponent implements OnInit {
     this.emitter.emit({
       occurence: this.occurence,
       occurence_date: this.occurence_date,
-      start_date: this.start_date,
-      end_date: this.end_date
+      occurence_start_date: this.start_date.toString(),
+      occurence_end_date: this.end_date.toString(),
+      start_time: this.start_occ_time,
+      end_time: this.end_occ_time
     });
   }
 
   startDateChange(event: any): void {
-    this.start_date = event.value.toString();
+    this.start_date = event.value;
     this.emitValues();
   }
 
   endDateChange(event: any): void {
-    this.end_date = event.value.toString();
+    this.end_date = event.value;
+    this.emitValues();
+  }
+
+  startTimeChange(event: any): void {
+    this.start_occ_time = event;
+    this.emitValues();
+  }
+
+  endTimeChange(event: any): void {
+    this.end_occ_time = event;
     this.emitValues();
   }
 

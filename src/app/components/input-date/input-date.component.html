@@ -32,5 +32,22 @@
             <mat-datepicker #enddate></mat-datepicker>   
         </mat-form-field>
     </div>
+
+    <div class="date-input-range">
+        <div class="header">Time</div>
+        <mat-form-field appearance="outline" class="date-input-range-item">
+            <mat-label>Starts</mat-label>
+            <input matInput [ngxTimepicker]="start_time" autocomplete="off" [value]="start_occ_time">
+            <mat-icon matSuffix>schedule</mat-icon>
+            <ngx-material-timepicker #start_time (timeSet)="startTimeChange($event)"></ngx-material-timepicker>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="date-input-range-item">
+            <mat-label>Ends By</mat-label>
+            <input matInput [ngxTimepicker]="end_time" autocomplete="off"  [value]="end_occ_time">
+            <mat-icon matSuffix>schedule</mat-icon>
+            <ngx-material-timepicker #end_time (timeSet)="endTimeChange($event)"></ngx-material-timepicker>
+          </mat-form-field>
+    </div>
     
 </div>

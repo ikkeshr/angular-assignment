@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { EventService } from '../../services/event.service';
 import { Title } from '@angular/platform-browser';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-create-event',
@@ -28,7 +28,15 @@ export class CreateEventComponent implements OnInit {
       subcategory: ['', Validators.required],
       type: ['', Validators.required],
       title: ['', Validators.required],
-      description: ['', Validators.required]
+      description: ['', Validators.required],
+      datetime: this.formBuilder.group({
+        occurence: ['', Validators.required],
+        occurence_date: ['', Validators.required],
+        occurence_start_date: ['', Validators.required],
+        occurence_end_date: ['', Validators.required],
+        start_time: ['', Validators.required],
+        end_time: ['', Validators.required]
+      })
     });
     this.pricingLocationForm = this.formBuilder.group({
       price: ['', Validators.required]
@@ -48,13 +56,7 @@ export class CreateEventComponent implements OnInit {
           this.titleService.setTitle(event.title);
           
           // Set values in the form for update
-          this.generalInfoForm.patchValue({
-            title:event.title,
-            description: event.description,
-            category: event.category,
-            subcategory: event.subcategory,
-            type: event.type
-          })
+          this.updateForm(event);
         });
       }
       else {
@@ -70,16 +72,36 @@ export class CreateEventComponent implements OnInit {
     });
   }
 
-  setType(event: any): void {
-    this.generalInfoForm.patchValue({type:event});
+  setType(type: any): void {
+    this.generalInfoForm.patchValue({type:type});
   }
 
-  setDate(event: any): void {
-    console.log(event);
+  setDate(datetime: any): void {
+    // console.log(datetime);
+    this.generalInfoForm.patchValue({
+      datetime: {
+        occurence: datetime.occurence,
+        occurence_date: datetime.occurence_date,
+        occurence_start_date: datetime.occurence_start_date,
+        occurence_end_date: datetime.occurence_end_date,
+        start_time: datetime.start_time,
+        end_time: datetime.end_time,
+      }
+    });
   }
 
   test() {
     console.log(this.generalInfoForm.value);
+  }
+
+  updateForm(event: any): void {
+    this.generalInfoForm.patchValue({
+      title:event.title,
+      description: event.description,
+    });
+    this.setCategory(event);
+    this.setType(event.type);
+    this.setDate(event.datetime);
   }
 
 }

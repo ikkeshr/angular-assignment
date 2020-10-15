@@ -10,8 +10,17 @@
 
 .date-input-body {
     .date-input-range {
+        .header {
+            padding: 10px;
+        }
         .date-input-range-item {
             padding: 0px 10px;
+            width: 236px;
+            mat-icon {
+                pointer-events: none;
+            }
         }
     }
 }
+
+

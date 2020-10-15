@@ -8,3 +8,37 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     --theme-color-light: #a5cdfd;
     --theme-color-dark: #0169da;
 }
+
+
+.timepicker {
+    .timepicker__header {
+      background-color: var(--theme-color) !important;
+      input:focus {
+        outline: none;
+      }
+    }
+  
+    .clock-face__clock-hand {
+      background-color: var(--theme-color) !important;
+  
+      &::after {
+        background-color: var(--theme-color) !important;
+      }
+  
+      &::before {
+        border-color: var(--theme-color) !important;
+      }
+    }
+  
+    .clock-face__number {
+      > span.active {
+        background-color: var(--theme-color) !important;
+      }
+    }
+  
+    button:not(.timepicker-dial__item) {
+      color: var(--theme-color) !important;
+    }
+  }
+
+
