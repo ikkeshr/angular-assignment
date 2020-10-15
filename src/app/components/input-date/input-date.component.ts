@@ -14,6 +14,8 @@ export class InputDateComponent implements OnInit {
   @Input('start_time') start_occ_time: string = "";
   @Input('end_time') end_occ_time: string = "";
 
+  currentDate: Date = new Date();
+
   occurences: any[] = [
     {
       occurence: "Monthly",

@@ -20,14 +20,14 @@
     <div class="date-input-range">
         <mat-form-field class="date-input-range-item" appearance="outline">
             <mat-label>Starts</mat-label>
-            <input matInput [matDatepicker]="startdate" [value]="start_date" autocomplete="off" (dateChange)="startDateChange($event)">
+            <input matInput [matDatepicker]="startdate" [value]="start_date" [min]="currentDate" autocomplete="off" (dateChange)="startDateChange($event)">
             <mat-datepicker-toggle matSuffix [for]="startdate"></mat-datepicker-toggle>
             <mat-datepicker #startdate></mat-datepicker>   
         </mat-form-field>
     
         <mat-form-field class="date-input-range-item" appearance="outline">
             <mat-label>Ends By</mat-label>
-            <input matInput [matDatepicker]="enddate" [value]="end_date" autocomplete="off" (dateChange)="endDateChange($event)">
+            <input matInput [matDatepicker]="enddate" [value]="end_date" [min]="start_date" autocomplete="off" (dateChange)="endDateChange($event)">
             <mat-datepicker-toggle matSuffix [for]="enddate"></mat-datepicker-toggle>
             <mat-datepicker #enddate></mat-datepicker>   
         </mat-form-field>
@@ -44,7 +44,7 @@
 
           <mat-form-field appearance="outline" class="date-input-range-item">
             <mat-label>Ends By</mat-label>
-            <input matInput [ngxTimepicker]="end_time" autocomplete="off"  [value]="end_occ_time">
+            <input matInput [ngxTimepicker]="end_time" autocomplete="off"  [value]="end_occ_time" [min]="start_occ_time">
             <mat-icon matSuffix>schedule</mat-icon>
             <ngx-material-timepicker #end_time (timeSet)="endTimeChange($event)"></ngx-material-timepicker>
           </mat-form-field>
