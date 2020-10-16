@@ -31,6 +31,7 @@ import { ToggleComponent } from './components/toggle/toggle.component';
 import { InputDateComponent } from './components/input-date/input-date.component';
 
 import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
+import { ImageUploadComponent } from './components/image-upload/image-upload.component';
 
 
 
@@ -45,7 +46,8 @@ import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
     CreateEventComponent,
     CategoryInputComponent,
     ToggleComponent,
-    InputDateComponent
+    InputDateComponent,
+    ImageUploadComponent
   ],
   imports: [
     BrowserModule,

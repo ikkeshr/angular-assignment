@@ -9,7 +9,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     --theme-color-dark: #0169da;
 }
 
-
+.mat-form-field-appearance-outline .mat-form-field-outline {
+  color: var(--theme-color) !important;
+}
 .timepicker {
     .timepicker__header {
       background-color: var(--theme-color) !important;
