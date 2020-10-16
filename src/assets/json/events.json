@@ -19,8 +19,8 @@
         "title": "Music Festival",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         "pictures": [
-            "/path/to/file.jpg",
-            "/path/to/file.jpg"
+            "../../../assets/imgs/event1.jpg",
+            "../../../assets/imgs/event2.jpg"
         ],
         "location": {
             "City": "New Orleans",
@@ -104,8 +104,7 @@
         "title": "Food Festival",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         "pictures": [
-            "/path/to/file.jpg",
-            "/path/to/file.jpg"
+            "../../../assets/imgs/event1.jpg"
         ],
         "location": {
             "City": "New Orleans",
@@ -188,10 +187,7 @@
         },
         "title": "Drawing Session",
         "description": "Working together in a sprint, you can shortcut the endless-debate cycle and compress months of time.",
-        "pictures": [
-            "/path/to/file.jpg",
-            "/path/to/file.jpg"
-        ],
+        "pictures": [],
         "location": {
             "City": "New Orleans",
             "Venue": "Hall",

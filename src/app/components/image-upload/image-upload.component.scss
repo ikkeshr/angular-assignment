@@ -2,9 +2,52 @@
     .image-upload-wrapper {
         .image-upload-header {
             font-size: 18px;
+            text-align: center;
+            padding-bottom: 20px;
         }
-        .image-upload-body {
-            font-size: 18px;
+        .drop-zone-wrap {
+            border: dashed var(--theme-color-light) 2px;
+            background-color: var(--theme-color-lighter);
+            padding: 0px 60px;
+            max-width: 623px;
+
+            &.ngx-dz-hovered {
+                border: solid var(--theme-color-light) 2px;
+                background-color: var(--theme-color-light);
+            }
+
+            .drop-zone {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                .drop-zone-icon-wrap{
+                    width: 60px;
+                    text-align: start; //overides ngx-dropzone-label's center
+                    .drop-zone-icon {
+                        font-size: 60px;
+                        color: var(--theme-color);
+                    }
+                }
+                .drop-zone-text {
+                    font-size: 18px;
+                    padding: 16px 0px;
+                    color: var(--theme-color);
+                }
+                .drop-zone-btn {
+                    border: none;
+                    background-color: var(--theme-color);
+                    color: white;
+                    padding: 10px 30px;
+                    border-radius: 20px;
+                    cursor: pointer;
+                    &:focus {
+                        outline: none;
+                    }
+                }
+            }
         }
+        
     }
 }

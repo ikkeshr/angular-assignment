@@ -1,8 +1,20 @@
 <div class="image-upload-root">
     <div class="image-upload-wrapper">
         <div class="image-upload-header">Upload main Image</div>
-        <div class="image-upload-body">
-            <div class="image-upload-body-text">Drag & Drop to upload</div>
-        </div>
+
+                <div class="drop-zone-wrap" #drop ngx-dropzone [accept]="'image/*'" (change)="onSelect($event)" disableClick="true" expandable="false" multiple="false">
+                    <ngx-dropzone-label>
+                        <div class="drop-zone">
+                            <div class="drop-zone-icon-wrap"><mat-icon matSuffix class="drop-zone-icon">backup</mat-icon></div>
+                            <div class="drop-zone-text">Drag & Drop to upload</div>
+                            <button class="drop-zone-btn" (click)="drop.showFileSelector()" type="button">Select File</button>
+                        </div>
+                    </ngx-dropzone-label>
+                    
+                    <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f" [removable]="true" (removed)="onRemove(f)">
+                        <ngx-dropzone-label>{{ f.name }}</ngx-dropzone-label>
+                    </ngx-dropzone-image-preview>
+                </div>
+
     </div>
 </div>

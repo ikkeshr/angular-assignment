@@ -6,7 +6,17 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 :root {
     --theme-color: #4c9bfb;
     --theme-color-light: #a5cdfd;
+    --theme-color-lighter: #e4f0fe;
     --theme-color-dark: #0169da;
+}
+
+.snack-bar {
+  color: var(--theme-color) !important; // green
+  background-color: white !important;
+  border-color: #c3e6cb !important;
+  .mat-simple-snackbar-action {
+      color: var(--theme-color-dark) !important;
+  }
 }
 
 .mat-form-field-appearance-outline .mat-form-field-outline {

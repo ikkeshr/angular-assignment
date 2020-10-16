@@ -22,6 +22,7 @@ import { SearchBoxComponent } from './components/search-box/search-box.component
 import { EventListComponent } from './components/event-list/event-list.component';
 import { EventCardComponent } from './components/event-card/event-card.component';
 import { MatNativeDateModule } from '@angular/material/core';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 import { HttpClientModule } from '@angular/common/http';
 import { CreateEventComponent } from './components/create-event/create-event.component';
@@ -32,6 +33,7 @@ import { InputDateComponent } from './components/input-date/input-date.component
 
 import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 import { ImageUploadComponent } from './components/image-upload/image-upload.component';
+import { NgxDropzoneModule } from 'ngx-dropzone';
 
 
 
@@ -66,7 +68,9 @@ import { ImageUploadComponent } from './components/image-upload/image-upload.com
     MatDatepickerModule,
     MatNativeDateModule,
     MatInputModule,
-    NgxMaterialTimepickerModule
+    NgxMaterialTimepickerModule,
+    NgxDropzoneModule,
+    MatSnackBarModule
   ],
   providers: [Title],
   bootstrap: [AppComponent]

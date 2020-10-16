@@ -36,7 +36,8 @@ export class CreateEventComponent implements OnInit {
         occurence_end_date: ['', Validators.required],
         start_time: ['', Validators.required],
         end_time: ['', Validators.required]
-      })
+      }),
+      pictures: this.formBuilder.array([], [Validators.required, Validators.maxLength(3)])
     });
     this.pricingLocationForm = this.formBuilder.group({
       price: ['', Validators.required]
@@ -90,10 +91,18 @@ export class CreateEventComponent implements OnInit {
     });
   }
 
+  setPictures(pictures: string[]): void {
+    (this.generalInfoForm.get("pictures") as FormArray).clear();
+    pictures.forEach(picture => {
+      (this.generalInfoForm.get("pictures") as FormArray).push(this.formBuilder.control(picture));
+    });
+  }
+
   test() {
     console.log(this.generalInfoForm.value);
     this.generalFormSubmmited = true;
-    console.log(this.generalInfoForm.get('datetime').invalid);
+    // console.log(this.generalInfoForm.get('datetime').invalid);
+    // console.log(this.generalInfoForm.get("pictures").invalid);
   }
 
   updateForm(event: any): void {
@@ -104,6 +113,7 @@ export class CreateEventComponent implements OnInit {
     this.setCategory(event);
     this.setType(event.type);
     this.setDate(event.datetime);
+    this.setPictures(event.pictures);
   }
 
 }
