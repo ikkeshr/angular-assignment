@@ -23,9 +23,9 @@
             "../../../assets/imgs/event2.jpg"
         ],
         "location": {
-            "City": "New Orleans",
-            "Venue": "Hall",
-            "Address": "Some address"
+            "City": "Curepipe",
+            "Venue": "Paradise Hall",
+            "Address": ""
         },
         "payment": {
             "type": "Paid",
@@ -107,12 +107,12 @@
             "../../../assets/imgs/event1.jpg"
         ],
         "location": {
-            "City": "New Orleans",
-            "Venue": "Hall",
-            "Address": "Some address"
+            "City": "Port-Louis",
+            "Venue": "Domaine Du Pouce",
+            "Address": ""
         },
         "payment": {
-            "type": "Paid",
+            "type": "Free",
             "pricing": [
                 {
                     "ticket_name": "Standard",
@@ -189,9 +189,9 @@
         "description": "Working together in a sprint, you can shortcut the endless-debate cycle and compress months of time.",
         "pictures": [],
         "location": {
-            "City": "New Orleans",
-            "Venue": "Hall",
-            "Address": "Some address"
+            "City": "",
+            "Venue": "",
+            "Address": "Vacous-Phoenix"
         },
         "payment": {
             "type": "Paid",

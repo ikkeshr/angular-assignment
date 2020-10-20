@@ -1,0 +1,84 @@
+.step-form {
+    .step-form-body {
+        // background-color: aqua;
+        // width: 100%;
+        padding: 20px;
+
+        .step-form-body-section {
+            // width: 100%;
+            border: solid var(--theme-color-light) 1px;
+            padding: 20px;
+            margin: 40px 0px;
+
+            &.first {
+                margin-top: 0px;
+            }
+            &.error {
+                border-color: crimson;
+            }
+
+            .step-form-body-section-header {
+                // background-color: aqua;
+                text-align: center;
+                font-size: 16px;
+                margin-bottom: 40px;
+                .title {
+                    .number {
+                        font-size: 13px;
+                        border: solid black 1px;
+                        border-radius: 50%;
+                        padding: 3px 5px;
+                        margin-right: 6px;
+                    }
+                    font-size: 18px;
+                }
+                .section-error {
+                    margin-top: 8px;
+                    color: crimson;
+                    font-size: 14px;
+                }
+            }
+
+            .step-form-body-section-body {
+                margin: 10px 0px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                .section-subheading {
+                    text-align: center;
+                    font-size: 18px;
+                    margin: 40px 0px 20px 0px;
+                }
+
+                .input {
+                    width: 80%;
+                    padding: 8px;
+                    border: solid var(--theme-color-light) 1px;
+                    &:focus {
+                        outline: none;
+                        border-color: var(--theme-color);
+                    }
+                }
+                .textarea {
+                    height: 70px;
+                    resize: none;
+                    font-family: inherit;
+                }
+            }
+        }
+    }
+
+
+    .footer-btn {
+        display: flex;
+        .footer-right {
+            margin-left: auto;
+            order: 2;
+
+            & > button {
+                margin-left: 10px;
+            }
+        }
+    }
+}

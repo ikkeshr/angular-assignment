@@ -66,14 +66,7 @@
 
     <!--=============================================================================================================================================================================================================================-->
     <mat-step label="Pricing and Location">
-        <form class="step-form" [formGroup]="pricingLocationForm">
-            <div class="footer-btn">
-                <button type="button" mat-stroked-button matStepperPrevious color="primary">Back</button>
-                <div class="footer-right">
-                    <button type="button" mat-raised-button matStepperNext color="primary">Next</button>
-                </div>
-            </div>
-        </form>
+        <app-pricing-location [eventData]="updateEvent"></app-pricing-location>
     </mat-step>
 
     <!--=============================================================================================================================================================================================================================-->

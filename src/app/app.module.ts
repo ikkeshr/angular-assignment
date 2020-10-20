@@ -34,6 +34,8 @@ import { InputDateComponent } from './components/input-date/input-date.component
 import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 import { ImageUploadComponent } from './components/image-upload/image-upload.component';
 import { NgxDropzoneModule } from 'ngx-dropzone';
+import { PricingLocationComponent } from './components/stepper-forms/pricing-location/pricing-location.component';
+import { CounterComponent } from './components/counter/counter.component';
 
 
 
@@ -49,7 +51,9 @@ import { NgxDropzoneModule } from 'ngx-dropzone';
     CategoryInputComponent,
     ToggleComponent,
     InputDateComponent,
-    ImageUploadComponent
+    ImageUploadComponent,
+    PricingLocationComponent,
+    CounterComponent
   ],
   imports: [
     BrowserModule,

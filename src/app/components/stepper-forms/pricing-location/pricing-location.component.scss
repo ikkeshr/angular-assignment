@@ -1,0 +1,38 @@
+@import '../stepper.scss';
+
+::ng-deep .mat-reduced-height .mat-form-field-flex > .mat-form-field-infix { padding: 0.4em 0px !important;}
+::ng-deep .mat-reduced-height .mat-form-field-label-wrapper { top: -1.5em; }
+
+::ng-deep .mat-reduced-height .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+    transform: translateY(-1.1em) scale(.75);
+    width: 133.33333%;
+}
+
+.root {
+    width: 100%;
+    .location-select-wrap {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .location-select-item {
+            width: 100%;
+            .label {
+                color: black;
+            }
+            .location-select {
+                width: 100%;
+            }
+        }
+    }
+
+    .location-input-wrap {
+        width: 100%;
+        .location-input-item {
+            width: 100%;
+        }
+    }
+
+    .location-hint {
+        color: darkgray;
+    }
+}
