@@ -24,8 +24,25 @@ mat-expansion-panel {
         justify-content: center;
         .location-select-item {
             width: 100%;
-            .label {
-                color: black;
+            .label-wrap {
+                height: 40px;
+                position: relative;
+                
+                .label {
+                    color: black;
+                    position: absolute;
+                    bottom: 0px;
+                    &.hint-on {
+                        position: relative;
+                    }
+                }
+                .hint {
+                    display: none;
+                    color: darkgoldenrod;
+                    &.show {
+                        display: block;
+                    }
+                }
             }
             .location-select {
                 width: 100%;

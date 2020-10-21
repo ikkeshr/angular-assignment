@@ -14,6 +14,7 @@ export class PricingLocationComponent implements OnInit {
   @Input('eventData') eventData: any; 
   pricingLocationForm: FormGroup;
   formSubmitted: boolean = false;
+  venueHintDisplayState: boolean = false;
   paymentPanelOpenState: boolean = true;
 
   locations: any[] = [
@@ -86,12 +87,17 @@ export class PricingLocationComponent implements OnInit {
 
   cityChange(change: MatSelectChange): void {
     this.pricingLocationForm.get('location').patchValue({ venue: '' });
+    this.venueHintDisplayState = false;
   }
 
   getVenuesByCity(): string[] {
     const location =  this.locations.find(element => element.city === this.pricingLocationForm.get('location').value.city);
     if (location) return location.venues;
     return [];
+  }
+
+  showVenueHint(): void {
+    if (this.getVenuesByCity().length < 1) this.venueHintDisplayState = true;
   }
 
   setPaymentType(paymentType): void {
