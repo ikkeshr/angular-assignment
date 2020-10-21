@@ -8,6 +8,10 @@
     width: 133.33333%;
 }
 
+.mat-expansion-panel:not([class*='mat-elevation-z']) {
+    box-shadow: none;
+}
+
 mat-expansion-panel {
     margin-top: 20px;
 }
