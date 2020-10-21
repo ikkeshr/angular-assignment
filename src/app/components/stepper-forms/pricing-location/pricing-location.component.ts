@@ -1,5 +1,6 @@
+import { ɵNullViewportScroller } from '@angular/common';
 import { Component, OnInit, Input } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { MatSelectChange } from '@angular/material/select';
 import { UrlHandlingStrategy } from '@angular/router';
 
@@ -13,6 +14,7 @@ export class PricingLocationComponent implements OnInit {
   @Input('eventData') eventData: any; 
   pricingLocationForm: FormGroup;
   formSubmitted: boolean = false;
+  paymentPanelOpenState: boolean = true;
 
   locations: any[] = [
     {
@@ -31,7 +33,7 @@ export class PricingLocationComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.pricingLocationForm = this.formBuilder.group({
@@ -41,8 +43,10 @@ export class PricingLocationComponent implements OnInit {
         address: ''
       }, { validators: this.validateLocation }),
       payment: this.formBuilder.group ({
-        type: ['', Validators.required]
-      })
+        type: ['Paid', Validators.required],
+        pricing: this.formBuilder.array([this.createPricing()]),
+        methods: this.formBuilder.array([])
+      }, { validators: this.validatePayment })
     });
   }
 
@@ -52,6 +56,18 @@ export class PricingLocationComponent implements OnInit {
       console.log(this.eventData);
       this.formSubmitted = false; // Remove validation errors, if any
 
+      // Create pricings controls in form
+      const pricingFormArray = (this.pricingLocationForm.get('payment').get('pricing') as FormArray);
+      pricingFormArray.clear();
+      this.eventData.payment.pricing.forEach(() => pricingFormArray.push(this.createPricing()));
+
+      // Add payment methods to form
+      (this.pricingLocationForm.get("payment").get("methods") as FormArray).clear();
+      this.eventData.payment.methods.forEach(cardName => this.paymentMethodChecked(cardName));
+
+      // Update payment type
+      this.setPaymentType(this.eventData.payment.type);
+
       this.pricingLocationForm.patchValue({
         location: {
           city: this.eventData.location.City,
@@ -59,10 +75,13 @@ export class PricingLocationComponent implements OnInit {
           address: this.eventData.location.Address
         },
         payment: {
-          type: this.eventData.payment.type
+          // type: this.eventData.payment.type,
+          pricing: this.eventData.payment.pricing,
+          methods: this.eventData.payment.methods
         }
       });
     }
+
   }
 
   cityChange(change: MatSelectChange): void {
@@ -77,11 +96,52 @@ export class PricingLocationComponent implements OnInit {
 
   setPaymentType(paymentType): void {
     this.pricingLocationForm.get('payment').patchValue({ type: paymentType });
+    if (paymentType === "Free") {
+      this.paymentPanelOpenState = false;
+    } else if (paymentType == "Paid") {
+      this.paymentPanelOpenState = true;
+    }
+  }
+
+  pricingCountChanged(pricingCount: number): void  {
+    // console.log(this.pricingLocationForm.get('payment').get('pricing').value.length)
+    const actualPricingCount: number = this.pricingLocationForm.get('payment').get('pricing').value.length;
+    if (pricingCount > actualPricingCount) {
+      (this.pricingLocationForm.get('payment').get('pricing') as FormArray).push(this.createPricing());
+    }
+    else if (pricingCount < actualPricingCount) {
+      (this.pricingLocationForm.get('payment').get('pricing') as FormArray).removeAt(actualPricingCount-1);
+    }
+  }
+
+  createPricing(): FormGroup {
+    return this.formBuilder.group({
+      ticket_name: ['', Validators.required],
+      price: ['', Validators.required],
+      currency: ['', Validators.required]
+    });
+  }
+
+  paymenyMethodPresent(cardName: string): boolean {
+    const paymentMethodsFormArray: FormArray = this.pricingLocationForm.get("payment").get("methods") as FormArray;
+    return ( paymentMethodsFormArray.value.findIndex(m => m === cardName) > -1 );
+  }
+
+  paymentMethodChecked(cardName: string): void {
+    // console.log(cardName);
+    const paymentMethodsFormArray: FormArray = this.pricingLocationForm.get("payment").get("methods") as FormArray;
+    const alreadyExistIdx = paymentMethodsFormArray.value.findIndex(m => m === cardName);
+    if (alreadyExistIdx < 0) {
+      paymentMethodsFormArray.push(this.formBuilder.control(cardName));
+    } else {
+      paymentMethodsFormArray.removeAt(alreadyExistIdx);
+    }
   }
 
   test() {
     this.formSubmitted = true;
     console.log(this.pricingLocationForm);
+    console.log(this.pricingLocationForm.value);
   }
 
   // Cross field Validator
@@ -107,6 +167,33 @@ export class PricingLocationComponent implements OnInit {
       }
     }
 
+  }
+
+  validatePayment: ValidatorFn = (form: FormGroup): ValidationErrors | null => {
+    const type: FormControl = form.get("type") as FormControl;
+    const pricing: any[] = form.get("pricing").value;
+    const methods: string[] = form.get("methods").value;
+
+    if (type.invalid) {
+      return { paymentTypeEmpty: true };
+    }
+    
+    if (type.value === "Paid") {
+      if (pricing.length < 1) {
+        return { paymentPricingEmpty: true }; 
+      }
+
+      for (var i=0; i<pricing.length; i++) {
+        const el = pricing[i];
+        if ( el.ticket_name === "" || el.price === "" || el.currency === "" ) {
+          return { pricingFieldEmpty: true };
+        }
+      }
+
+      if (methods.length < 1) return { paymentMethodEmpty: true };
+    }
+
+    return null;
 
   }
 

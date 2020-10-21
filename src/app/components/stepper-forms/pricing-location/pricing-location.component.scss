@@ -8,6 +8,10 @@
     width: 133.33333%;
 }
 
+mat-expansion-panel {
+    margin-top: 20px;
+}
+
 .root {
     width: 100%;
     .location-select-wrap {
@@ -34,5 +38,43 @@
 
     .location-hint {
         color: darkgray;
+    }
+}
+
+.pricing-wrap{
+    max-width: 720px;
+    padding-top: 40px;
+    .flex-table {
+        width: 100%;
+        
+        .flex-table-row{
+            display: flex;
+            .cell{
+                width: 100%;
+                padding: 0px 20px;
+                // border: 1px solid black;
+                .input-field {
+                    width: 100%;
+                }
+
+                &.first {
+                    padding-left: 0px;
+                }
+                &.last {
+                    padding-right: 0px;
+                }
+            }
+        }
+    }
+}
+
+
+.payment-methods-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    width: 720px;
+    
+    & > app-checkbox-payment {
+        margin: 10px 20px;
     }
 }

@@ -16,6 +16,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatInputModule} from '@angular/material/input';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 import { TopMenuComponent } from './components/top-menu/top-menu.component';
 import { SearchBoxComponent } from './components/search-box/search-box.component';
@@ -36,6 +37,7 @@ import { ImageUploadComponent } from './components/image-upload/image-upload.com
 import { NgxDropzoneModule } from 'ngx-dropzone';
 import { PricingLocationComponent } from './components/stepper-forms/pricing-location/pricing-location.component';
 import { CounterComponent } from './components/counter/counter.component';
+import { CheckboxPaymentComponent } from './components/checkbox-payment/checkbox-payment.component';
 
 
 
@@ -53,7 +55,8 @@ import { CounterComponent } from './components/counter/counter.component';
     InputDateComponent,
     ImageUploadComponent,
     PricingLocationComponent,
-    CounterComponent
+    CounterComponent,
+    CheckboxPaymentComponent
   ],
   imports: [
     BrowserModule,
@@ -74,7 +77,8 @@ import { CounterComponent } from './components/counter/counter.component';
     MatInputModule,
     NgxMaterialTimepickerModule,
     NgxDropzoneModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatExpansionModule
   ],
   providers: [Title],
   bootstrap: [AppComponent]

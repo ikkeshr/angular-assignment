@@ -1,0 +1,29 @@
+.counter-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .content {
+        padding: 12px 25px;
+        font-size: 18px;
+    }
+    .dec {
+        background-color: var(--theme-color-dark);
+        color: white;
+        border-top-left-radius: 25px;
+        border-bottom-left-radius: 25px;
+        border: solid 1px var(--theme-color-dark);
+        cursor: pointer;
+    }
+    .display-count {
+        border-top: solid 1px var(--theme-color);
+        border-bottom: solid 1px var(--theme-color);
+    }
+    .inc {
+        background-color: var(--theme-color-dark);
+        color: white;
+        border-top-right-radius: 25px;
+        border-bottom-right-radius: 25px;
+        border: solid 1px var(--theme-color-dark);
+        cursor: pointer;
+    }
+}

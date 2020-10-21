@@ -32,31 +32,21 @@
             "pricing": [
                 {
                     "ticket_name": "Standard",
-                    "price": "20",
-                    "currency": "USD"
+                    "price": "10",
+                    "currency": "Mauritian Rupees"
                 },
                 {
                     "ticket_name": "Premium",
                     "price": "100",
-                    "currency": "USD"
+                    "currency": "Mauritian Rupees"
                 },
                 {
                     "ticket_name": "VIP",
                     "price": "1000",
-                    "currency": "USD"
+                    "currency": "Mauritian Rupees"
                 }
             ],
-            "methods": [
-                {
-                    "card_name": "Mastercard"
-                },
-                {
-                    "card_name": "VISA"
-                },
-                {
-                    "card_name": "Cirrus"
-                }
-            ]
+            "methods": [ "Mastercard", "Visa", "Cirrus"]
         },
         "restrictions": [
             {
@@ -117,30 +107,15 @@
                 {
                     "ticket_name": "Standard",
                     "price": "20",
-                    "currency": "USD"
+                    "currency": "Indian Rupees"
                 },
                 {
                     "ticket_name": "Premium",
                     "price": "100",
-                    "currency": "USD"
-                },
-                {
-                    "ticket_name": "VIP",
-                    "price": "1000",
-                    "currency": "USD"
+                    "currency": "Indian Rupees"
                 }
             ],
-            "methods": [
-                {
-                    "card_name": "Mastercard"
-                },
-                {
-                    "card_name": "VISA"
-                },
-                {
-                    "card_name": "Cirrus"
-                }
-            ]
+            "methods": [ "Mastercard", "Paypal", "Discover"]
         },
         "restrictions": [
             {
@@ -198,31 +173,16 @@
             "pricing": [
                 {
                     "ticket_name": "Standard",
-                    "price": "20",
-                    "currency": "USD"
+                    "price": "30",
+                    "currency": "Euro"
                 },
                 {
                     "ticket_name": "Premium",
                     "price": "100",
-                    "currency": "USD"
-                },
-                {
-                    "ticket_name": "VIP",
-                    "price": "1000",
-                    "currency": "USD"
+                    "currency": "Euro"
                 }
             ],
-            "methods": [
-                {
-                    "card_name": "Mastercard"
-                },
-                {
-                    "card_name": "VISA"
-                },
-                {
-                    "card_name": "Cirrus"
-                }
-            ]
+            "methods": [ "Paypal", "Visa", "Cirrus"]
         },
         "restrictions": [
             {

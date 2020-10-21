@@ -44,15 +44,70 @@
             </div>
         </div>
 
-        <div class="step-form-body-section">
+        <div class="step-form-body-section" formGroupName="payment" [class.error]="pricingLocationForm.get('payment').errors && formSubmitted">
             <div class="step-form-body-section-header">
                 <div class="title"><span class="number">8</span>What is the price?</div>
+                <div class="section-error" *ngIf="pricingLocationForm.get('payment').hasError('paymentTypeEmpty') && formSubmitted">Please specify if it is a free or paid event.</div>
+                <div class="section-error" *ngIf="pricingLocationForm.get('payment').hasError('paymentPricingEmpty') && formSubmitted">Please specify at least one pricing.</div>
+                <div class="section-error" *ngIf="pricingLocationForm.get('payment').hasError('pricingFieldEmpty') && formSubmitted">Please fill in all the pricing fields.</div>
+                <div class="section-error" *ngIf="pricingLocationForm.get('payment').hasError('paymentMethodEmpty') && formSubmitted">Please choose at least one payment method.</div>
             </div>
             <div class="step-form-body-section-body">
-                <div>
-                    <app-toggle leftText="Free" rightText="Paid" [select]="(eventData) ? (eventData.payment.type) : ''" (onChange)="setPaymentType($event)"></app-toggle>
+
+                    
+                    
+                    <app-toggle leftText="Free" rightText="Paid" [select]="(eventData) ? (eventData.payment.type) : 'Paid'" (onChange)="setPaymentType($event)"></app-toggle>
+                    
+                    <mat-expansion-panel [expanded]="paymentPanelOpenState">
+
                     <div class="section-subheading">How many different pricing?</div>
-                </div>
+                    <app-counter [default]="(eventData) ? (eventData.payment.pricing.length) : 1" max="3" (onChange)="pricingCountChanged($event)"></app-counter>
+                    
+                    <div class="pricing-wrap">
+                        <div class="flex-table" formArrayName="pricing">
+                            <div class="flex-table-row" *ngIf="pricingLocationForm.get('payment').get('pricing').value.length!==0">
+                                <div class="cell first">Ticket Name</div><div class="cell">Price</div><div class="cell last">Currency</div>
+                            </div>
+                            <div class="flex-table-row" *ngFor="let item of pricingLocationForm.get('payment').get('pricing')['controls']; let i=index;" [formGroupName]="i">
+                                <div class="cell first">
+                                    <mat-form-field appearance="outline" class="mat-reduced-height input-field">
+                                        <input matInput type="text" autocomplete="off" formControlName="ticket_name">
+                                    </mat-form-field>
+                                </div>
+                                <div class="cell">
+                                    <mat-form-field appearance="outline" class="mat-reduced-height input-field">
+                                        <input matInput type="text" autocomplete="off" formControlName="price">
+                                    </mat-form-field>
+                                </div>
+                                <div class="cell last">
+                                    <mat-form-field appearance="outline" class="mat-reduced-height input-field">
+                                        <mat-select formControlName="currency">
+                                            <mat-option value="Indian Rupees">Indian Rupees</mat-option>
+                                            <mat-option value="Mauritian Rupees">Mauritian Rupees</mat-option>
+                                            <mat-option value="US Dollar">US Dollar</mat-option>
+                                            <mat-option value="Euro">Euro</mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section-subheading">Which credit cards do you access?</div>
+
+                    <div class="payment-methods-wrap">
+                        <app-checkbox-payment [checked]="paymenyMethodPresent('Mastercard')" name="Mastercard" cardImgSrc="../../../assets/payment-cards/mastercard.png" (onChecked)="paymentMethodChecked($event)"></app-checkbox-payment>
+                        <app-checkbox-payment [checked]="paymenyMethodPresent('Visa')" name="Visa" cardImgSrc="../../../assets/payment-cards/visa.png" (onChecked)="paymentMethodChecked($event)"></app-checkbox-payment>
+                        <app-checkbox-payment [checked]="paymenyMethodPresent('American Express')" name="American Express" cardImgSrc="../../../assets/payment-cards/ameriacan-express.png" (onChecked)="paymentMethodChecked($event)"></app-checkbox-payment>
+                        <app-checkbox-payment [checked]="paymenyMethodPresent('Cirrus')" name="Cirrus" cardImgSrc="../../../assets/payment-cards/cirrus.png" (onChecked)="paymentMethodChecked($event)"></app-checkbox-payment>
+                        <app-checkbox-payment [checked]="paymenyMethodPresent('Discover')" name="Discover" cardImgSrc="../../../assets/payment-cards/discover.png" (onChecked)="paymentMethodChecked($event)"></app-checkbox-payment>
+                        <app-checkbox-payment [checked]="paymenyMethodPresent('Paypal')" name="Paypal" cardImgSrc="../../../assets/payment-cards/paypal.png" (onChecked)="paymentMethodChecked($event)"></app-checkbox-payment>
+                        <app-checkbox-payment [checked]="paymenyMethodPresent('Shopify')" name="Shopify" cardImgSrc="../../../assets/payment-cards/shopify.png" (onChecked)="paymentMethodChecked($event)"></app-checkbox-payment>
+                        <app-checkbox-payment [checked]="paymenyMethodPresent('Western Union')" name="Western Union" cardImgSrc="../../../assets/payment-cards/western-union.png" (onChecked)="paymentMethodChecked($event)"></app-checkbox-payment>
+                    </div>
+
+                    </mat-expansion-panel>
+
             </div>
         </div>
     </div>

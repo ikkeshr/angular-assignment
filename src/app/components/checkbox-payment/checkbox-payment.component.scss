@@ -1,0 +1,41 @@
+.checkbox-payment-root {
+    // border: solid 1px black;
+    height: 60px;
+    width: 120px;
+    position: relative;
+    padding: 10px;
+    cursor: pointer;
+    .img {
+        // margin: 10px;
+        width: inherit;
+        height: inherit;
+        border: solid 1px var(--theme-color-light);
+        border-radius: 5px;
+    }
+    .checkbox {
+        float: right;
+        position: absolute;
+        right: 0px;
+        bottom: 0px;
+        z-index: 1000;
+
+        width: 16px;
+        height: 16px;
+        background: white;
+        border: 2px solid var(--theme-color-light);
+        border-radius: 50%;
+        cursor: pointer;
+        justify-content: center;
+        transition: all 300ms ease-in-out;
+
+      
+        &.checked {
+            background: var(--theme-color) url("./../../../assets/icons/check-mark.svg") no-repeat center center;
+            width: 16px;
+            height: 16px;
+            background-size: 15px;
+            transition: all 300ms ease-in-out;
+
+        }
+      }
+}
