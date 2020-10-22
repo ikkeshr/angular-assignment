@@ -6,7 +6,7 @@
                 <div class="section-error" *ngIf="additionalInfoForm.get('restrictions').invalid && formSubmitted">Please select at least one restriction</div>
             </div>
             <div class="step-form-body-section-body">
-                <div class="restrictions-wrap">
+                <div class="checkboxes-wrap">
                     <app-checkbox 
                         *ngFor="let restriction of restrictions" 
                         [checked]="restrictionAdded(restriction)"
@@ -26,15 +26,18 @@
                 </div>
             </div>
             <div class="step-form-body-section-body">
-                <app-counter (onChange)="changeAttendanceCount($event)"></app-counter>
+                <app-counter [default]="(eventData) ? (eventData.attendance_count) : 0" (onChange)="changeAttendanceCount($event)"></app-counter>
             </div>
         </div>
 
-        <div class="step-form-body-section">
+        <div class="step-form-body-section" [class.error]="this.additionalInfoForm.get('special_guests').get('names').invalid && formSubmitted">
             <div class="step-form-body-section-header">
                 <div class="title">
                     <span class="number">11</span>
                     <span>How many special guests will there be?</span>
+                </div>
+                <div class="section-error" *ngIf="this.additionalInfoForm.get('special_guests').get('names').invalid && formSubmitted">
+                    Please enter the special guests name
                 </div>
             </div>
             <div class="step-form-body-section-body" formGroupName="special_guests">
@@ -43,16 +46,66 @@
                 (onChange)="changeSpecialGuestChange($event)"></app-counter>
 
                 <mat-expansion-panel [expanded]="openMatExapandPanel" >
-                    <div class="section-subheading">What are the names of your special guests?</div>
-                    <div class="input-root" formArrayName="names">
-                        <div class="input-wrap" *ngFor="let name of additionalInfoForm.get('special_guests').get('names')['controls']; let i = index;">
-                            <div class="input-number">{{ i+1 }}.</div>
-                            <input type="text" class="input" [formControlName]="i">
+                    <div class="expandable-wrap">
+
+                        <div class="section-subheading">What are the names of your special guests?</div>
+                        <div class="input-root" formArrayName="names">
+                            <div class="input-wrap" *ngFor="let name of additionalInfoForm.get('special_guests').get('names')['controls']; let i = index;">
+                                <div class="input-number">{{ i+1 }}.</div>
+                                <input type="text" class="input" [formControlName]="i">
+                            </div>
                         </div>
+
+                        <div class="sub-heading-wrap">
+                            <div class="sub-heading">Upload an Image</div>
+                            <span class="sub-opt">Optional</span>
+                        </div>
+                        <div class="img-upload-wrap" style="width:300px;">
+                            <app-image-upload
+                                [preloadImgs]="(eventData) ? (eventData.special_guests.pictures) : []"
+                                (onUpload)="setGuestImages($event)"
+                            ></app-image-upload>
+                        </div>
+
+                        <div class="sub-heading-wrap">
+                            <div class="sub-heading">Any Additional Information?</div>
+                            <span class="sub-opt">Optional</span>
+                        </div>
+                        <div style="width: 100%"><textarea class="input textarea" style="width:100%" formControlName="additional_info"></textarea></div>
+
                     </div>
                 </mat-expansion-panel>
                 
 
+            </div>
+        </div>
+
+        <div class="step-form-body-section" [class.error]="authoritiesValid()">
+            <div class="step-form-body-section-header">
+                <div class="title">
+                    <span class="number">12</span>
+                    <span>Any Authorities need to be notified?</span>
+                </div>
+                <div class="section-error" *ngIf="authoritiesValid()">Please select an Authority to notify</div>
+            </div>
+            <div class="step-form-body-section-body">
+                <app-toggle 
+                    leftText="Yes" 
+                    rightText="No"
+                    [select]="(showAuthoritiesPanel) ? 'Yes' : 'No'"
+                    (onChange)="toggleAuthoritiesNotified($event)"
+                ></app-toggle>
+                <div 
+                    class="checkboxes-wrap" 
+                    style="margin-top: 30px;"
+                    *ngIf="showAuthoritiesPanel"
+                >
+                    <app-checkbox 
+                        *ngFor="let authority of authorities" 
+                        [checked]="authorityAdded(authority)"
+                        [label]="authority" 
+                        (onChange)="AddOrRemoveAuthority(authority)"></app-checkbox>
+                </div>
             </div>
         </div>
 

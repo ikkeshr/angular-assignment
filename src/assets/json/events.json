@@ -55,11 +55,7 @@
             "pictures": [],
             "addtional_info": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
         },
-        "authorities_notified": [
-            { 
-                "authority": "Traffic Control"
-            }
-        ]
+        "authorities_notified": ["Police", "Fire Department"]
     },
     {
         "event_id": 2,
@@ -111,11 +107,7 @@
             "pictures": [],
             "addtional_info": "test addional info"
         },
-        "authorities_notified": [
-            { 
-                "authority": "Traffic Control"
-            }
-        ]
+        "authorities_notified": ["Police"]
     },
     {
         "event_id": 3,
@@ -165,10 +157,6 @@
             "pictures": [],
             "addtional_info": ""
         },
-        "authorities_notified": [
-            { 
-                "authority": "Traffic Control"
-            }
-        ]
+        "authorities_notified": ["Traffic Control"]
     }
 ]

@@ -8,7 +8,7 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 })
 export class ImageUploadComponent implements OnInit {
 
-  private readonly maxImg: number = 3;
+  @Input('max') maxImg: number = 3;
 
   files: File[] = [];
 

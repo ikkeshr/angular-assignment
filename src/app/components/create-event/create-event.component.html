@@ -53,7 +53,10 @@
                         <div class="title"><span class="number">6</span>Event's picture</div>
                         <div class="section-error" *ngIf="this.generalInfoForm.get('pictures').invalid && generalFormSubmmited"><span>Please add an image</span></div>
                     </div>
-                    <div class="step-form-body-section-body"><app-image-upload [preloadImgs]="(updateEvent) ? (updateEvent.pictures) : []" (onUpload)="setPictures($event)"></app-image-upload></div>
+                    <div class="step-form-body-section-body">
+                        <div class="section-subheading">Upload main Image</div>
+                        <app-image-upload [preloadImgs]="(updateEvent) ? (updateEvent.pictures) : []" (onUpload)="setPictures($event)"></app-image-upload>
+                    </div>
                 </div>
             </div>
             <div class="footer-btn">

@@ -61,6 +61,24 @@
                     margin: 40px 0px 20px 0px;
                 }
 
+                .sub-heading-wrap {
+                    width: 100%;
+                    margin: 40px 0px 20px 0px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    position: relative;
+                    .sub-heading {
+                        text-align: center;
+                        font-size: 18px;
+                    }
+                    .sub-opt {
+                        color: var(--theme-color-light);
+                        position: absolute;
+                        right: 0px;
+                    }
+                }
+
                 .input {
                     width: 80%;
                     padding: 8px;

@@ -7,7 +7,7 @@ mat-expansion-panel {
     margin-top: 20px;
 }
 
-.restrictions-wrap {
+.checkboxes-wrap {
     width: 750px;
     display: flex;
     flex-wrap: wrap;
@@ -19,16 +19,25 @@ mat-expansion-panel {
 
 }
 
-.input-root {
-    min-width: 450px;
-    .input-wrap {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 20px;
-        .input-number {
-            margin-right: 5px;
-            font-size: 16px;
+.expandable-wrap {
+    min-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .input-root {
+        min-width: 450px;
+        width: 550px;
+        .input-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            .input-number {
+                margin-right: 5px;
+                font-size: 16px;
+            }
         }
     }
 }
