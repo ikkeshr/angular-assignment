@@ -1,0 +1,67 @@
+<form class="step-form" [formGroup]="additionalInfoForm">
+    <div class="step-form-body">
+        <div class="step-form-body-section" [class.error]="additionalInfoForm.get('restrictions').invalid && formSubmitted">
+            <div class="step-form-body-section-header">
+                <div class="title"><span class="number">9</span>Any restrictions in regards of your audience?</div>
+                <div class="section-error" *ngIf="additionalInfoForm.get('restrictions').invalid && formSubmitted">Please select at least one restriction</div>
+            </div>
+            <div class="step-form-body-section-body">
+                <div class="restrictions-wrap">
+                    <app-checkbox 
+                        *ngFor="let restriction of restrictions" 
+                        [checked]="restrictionAdded(restriction)"
+                        [label]="restriction" 
+                        (onChange)="AddOrRemoveRestriction(restriction)"></app-checkbox>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="step-form-body-section">
+            <div class="step-form-body-section-header">
+                <div class="title">
+                    <span class="number">10</span>
+                    <span>How many people do you expect to see?</span>
+                    <span class="opt">Optional</span>
+                </div>
+            </div>
+            <div class="step-form-body-section-body">
+                <app-counter (onChange)="changeAttendanceCount($event)"></app-counter>
+            </div>
+        </div>
+
+        <div class="step-form-body-section">
+            <div class="step-form-body-section-header">
+                <div class="title">
+                    <span class="number">11</span>
+                    <span>How many special guests will there be?</span>
+                </div>
+            </div>
+            <div class="step-form-body-section-body" formGroupName="special_guests">
+                <app-counter
+                [default]="(eventData) ? (eventData.special_guests.names.length) : 0"
+                (onChange)="changeSpecialGuestChange($event)"></app-counter>
+
+                <mat-expansion-panel [expanded]="openMatExapandPanel" >
+                    <div class="section-subheading">What are the names of your special guests?</div>
+                    <div class="input-root" formArrayName="names">
+                        <div class="input-wrap" *ngFor="let name of additionalInfoForm.get('special_guests').get('names')['controls']; let i = index;">
+                            <div class="input-number">{{ i+1 }}.</div>
+                            <input type="text" class="input" [formControlName]="i">
+                        </div>
+                    </div>
+                </mat-expansion-panel>
+                
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer-btn">
+        <button type="button" mat-stroked-button matStepperPrevious color="primary">Back</button>
+        <div class="footer-right">
+            <button type="button" mat-raised-button matStepperNext color="primary" (click)="submit()">Next</button>
+        </div>
+    </div>
+</form>

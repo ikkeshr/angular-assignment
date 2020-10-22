@@ -38,6 +38,8 @@ import { NgxDropzoneModule } from 'ngx-dropzone';
 import { PricingLocationComponent } from './components/stepper-forms/pricing-location/pricing-location.component';
 import { CounterComponent } from './components/counter/counter.component';
 import { CheckboxPaymentComponent } from './components/checkbox-payment/checkbox-payment.component';
+import { AdditionalInfoComponent } from './components/stepper-forms/additional-info/additional-info.component';
+import { CheckboxComponent } from './components/checkbox/checkbox.component';
 
 
 
@@ -56,7 +58,9 @@ import { CheckboxPaymentComponent } from './components/checkbox-payment/checkbox
     ImageUploadComponent,
     PricingLocationComponent,
     CounterComponent,
-    CheckboxPaymentComponent
+    CheckboxPaymentComponent,
+    AdditionalInfoComponent,
+    CheckboxComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,35 @@
+.checkbox {
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    // margin-left: 10px;
+  
+    .box {
+      width: 20px;
+      height: 20px;
+    //   background: white;
+      border: 2px solid var(--theme-color-light);
+      border-radius: 50%;
+      justify-content: center;
+      transition: all 300ms ease-in-out;
+    }
+  
+    .label {
+      font-size: 14px;
+      margin-left: 10px;
+      user-select: none;
+    }
+  
+    &.checked {
+      .box {
+        background: var(--theme-color) url("./../../../assets/icons/check-mark.svg") no-repeat center center;
+        // width: 16px;
+        // height: 16px;
+        background-size: 15px;
+        transition: all 300ms ease-in-out;
+      }
+    }
+  }
+  

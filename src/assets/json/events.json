@@ -48,26 +48,13 @@
             ],
             "methods": [ "Mastercard", "Visa", "Cirrus"]
         },
-        "restrictions": [
-            {
-                "type": "None"
-            }
-        ],
+        "restrictions": ["None"],
         "attendance_count": 100,
         "special_guests": {
-            "count": 2,
-            "names": [
-                {
-                    "name": "Special guest one",
-                    "picturePath": ""
-                },
-                {
-                    "name": "Special guest two",
-                    "picturePath": ""
-                }
-            ]
+            "names": ["Special Guest One", "Special Guest Two"],
+            "pictures": [],
+            "addtional_info": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
         },
-        "additional_info": "",
         "authorities_notified": [
             { 
                 "authority": "Traffic Control"
@@ -117,26 +104,13 @@
             ],
             "methods": [ "Mastercard", "Paypal", "Discover"]
         },
-        "restrictions": [
-            {
-                "type": "None"
-            }
-        ],
+        "restrictions": ["None", "Children Only"],
         "attendance_count": 100,
         "special_guests": {
-            "count": 2,
-            "names": [
-                {
-                    "name": "Special guest one",
-                    "picturePath": ""
-                },
-                {
-                    "name": "Special guest two",
-                    "picturePath": ""
-                }
-            ]
+            "names": ["Special Guest Three"],
+            "pictures": [],
+            "addtional_info": "test addional info"
         },
-        "additional_info": "",
         "authorities_notified": [
             { 
                 "authority": "Traffic Control"
@@ -184,26 +158,13 @@
             ],
             "methods": [ "Paypal", "Visa", "Cirrus"]
         },
-        "restrictions": [
-            {
-                "type": "None"
-            }
-        ],
+        "restrictions": ["No Children", "Event 18+"],
         "attendance_count": 100,
         "special_guests": {
-            "count": 2,
-            "names": [
-                {
-                    "name": "Special guest one",
-                    "picturePath": ""
-                },
-                {
-                    "name": "Special guest two",
-                    "picturePath": ""
-                }
-            ]
+            "names": [],
+            "pictures": [],
+            "addtional_info": ""
         },
-        "additional_info": "",
         "authorities_notified": [
             { 
                 "authority": "Traffic Control"

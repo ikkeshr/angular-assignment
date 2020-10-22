@@ -65,21 +65,14 @@
     </mat-step> -->
 
     <!--=============================================================================================================================================================================================================================-->
-    <mat-step label="Pricing and Location">
+    <!-- <mat-step label="Pricing and Location">
         <app-pricing-location [eventData]="updateEvent"></app-pricing-location>
-    </mat-step>
+    </mat-step> -->
 
     <!--=============================================================================================================================================================================================================================-->
 
     <mat-step label="Additional Information">
-        <form class="step-form" [formGroup]="additionalInfoForm">
-            <div class="footer-btn">
-                <button type="button" mat-stroked-button matStepperPrevious color="primary">Back</button>
-                <div class="footer-right">
-                    <button type="button" mat-raised-button matStepperNext color="primary">Next</button>
-                </div>
-            </div>
-        </form>
+        <app-additional-info [eventData]="updateEvent"></app-additional-info>
     </mat-step>
 
      <!--=============================================================================================================================================================================================================================-->

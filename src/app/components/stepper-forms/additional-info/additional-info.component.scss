@@ -1,0 +1,34 @@
+@import "../stepper.scss";
+
+.mat-expansion-panel:not([class*='mat-elevation-z']) {
+    box-shadow: none;
+}
+mat-expansion-panel {
+    margin-top: 20px;
+}
+
+.restrictions-wrap {
+    width: 750px;
+    display: flex;
+    flex-wrap: wrap;
+    
+    app-checkbox {
+        padding: 8px 40px;
+        width: 150px;
+    }
+
+}
+
+.input-root {
+    min-width: 450px;
+    .input-wrap {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+        .input-number {
+            margin-right: 5px;
+            font-size: 16px;
+        }
+    }
+}

@@ -6,6 +6,7 @@
 
         .step-form-body-section {
             // width: 100%;
+            min-width: 700px;
             border: solid var(--theme-color-light) 1px;
             padding: 20px;
             margin: 40px 0px;
@@ -23,12 +24,21 @@
                 font-size: 16px;
                 margin-bottom: 40px;
                 .title {
+                    position: relative;
+                    
                     .number {
                         font-size: 13px;
                         border: solid black 1px;
                         border-radius: 50%;
                         padding: 3px 5px;
                         margin-right: 6px;
+                    }
+                    .opt {
+                        position: absolute;
+                        // float: right;
+                        right: 5px;
+                        font-size: 14px;
+                        color: var(--theme-color-light);
                     }
                     font-size: 18px;
                 }
