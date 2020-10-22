@@ -55,6 +55,7 @@ export class PricingLocationComponent implements OnInit {
   ngOnChanges(): void {
     if (this.eventData) {
       console.log(this.eventData);
+      this.venueHintDisplayState = false;
       this.formSubmitted = false; // Remove validation errors, if any
 
       // Create pricings controls in form

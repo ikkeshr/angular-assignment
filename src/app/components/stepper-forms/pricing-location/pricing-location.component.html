@@ -17,6 +17,7 @@
                             </div>
                             <mat-form-field appearance="outline" class="mat-reduced-height location-select">
                                 <mat-select formControlName="city" (selectionChange)="cityChange($event)">
+                                    <mat-option value="">City</mat-option>
                                     <mat-option *ngFor="let location of locations" value="{{location.city}}">{{ location.city }}</mat-option>
                                 </mat-select>
                             </mat-form-field>
