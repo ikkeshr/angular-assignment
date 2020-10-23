@@ -1,8 +1,9 @@
 import { ɵNullViewportScroller } from '@angular/common';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { MatSelectChange } from '@angular/material/select';
 import { UrlHandlingStrategy } from '@angular/router';
+import { MatStepper } from '@angular/material/stepper';
 
 @Component({
   selector: 'app-pricing-location',
@@ -11,7 +12,10 @@ import { UrlHandlingStrategy } from '@angular/router';
 })
 export class PricingLocationComponent implements OnInit {
 
-  @Input('eventData') eventData: any; 
+  @Input('eventData') eventData: any;
+  @Input('stepper') stepper: MatStepper;
+  @Output('form') emitter: EventEmitter<FormGroup> = new EventEmitter<FormGroup>();
+
   pricingLocationForm: FormGroup;
   formSubmitted: boolean = false;
   venueHintDisplayState: boolean = false;
@@ -49,6 +53,7 @@ export class PricingLocationComponent implements OnInit {
         methods: this.formBuilder.array([])
       }, { validators: this.validatePayment })
     });
+    this.emitter.emit(this.pricingLocationForm);
   }
 
   // Fill in form data for update
@@ -145,10 +150,14 @@ export class PricingLocationComponent implements OnInit {
     }
   }
 
-  test() {
+  submit() {
     this.formSubmitted = true;
-    console.log(this.pricingLocationForm);
-    console.log(this.pricingLocationForm.value);
+    // console.log(this.pricingLocationForm);
+    // console.log(this.pricingLocationForm.value);
+    if (this.pricingLocationForm.valid) {
+      this.emitter.emit(this.pricingLocationForm);
+      this.stepper.next();
+    }
   }
 
   // Cross field Validator

@@ -13,9 +13,9 @@ export class CreateEventComponent implements OnInit {
 
   updateEvent: any;
 
-  generalInfoForm: FormGroup; generalFormSubmmited: boolean = false;
-  pricingLocationForm: FormGroup; pricingLocationFormSubmitted: boolean = false;
-  additionalInfoForm: FormGroup; additionalInfoFormSubmitted: boolean = false;
+  generalInfoForm: FormGroup;
+  pricingLocationForm: FormGroup;
+  additionalInfoForm: FormGroup;
 
   constructor(
     private route: ActivatedRoute,
@@ -23,28 +23,6 @@ export class CreateEventComponent implements OnInit {
     private titleService: Title,
     private formBuilder: FormBuilder,
   ) {
-    this.generalInfoForm = this.formBuilder.group({
-      category: ['', Validators.required],
-      subcategory: ['', Validators.required],
-      type: ['', Validators.required],
-      title: ['', Validators.required],
-      description: ['', Validators.required],
-      datetime: this.formBuilder.group({
-        occurence: ['', Validators.required],
-        occurence_date: ['', Validators.required],
-        occurence_start_date: ['', Validators.required],
-        occurence_end_date: ['', Validators.required],
-        start_time: ['', Validators.required],
-        end_time: ['', Validators.required]
-      }),
-      pictures: this.formBuilder.array([], [Validators.required, Validators.maxLength(3)])
-    });
-    this.pricingLocationForm = this.formBuilder.group({
-      price: ['', Validators.required]
-    });
-    this.additionalInfoForm = this.formBuilder.group({
-      restrictions: ['', Validators.required]
-    });
   }
 
   ngOnInit(): void {
@@ -56,8 +34,6 @@ export class CreateEventComponent implements OnInit {
           this.updateEvent = event;
           this.titleService.setTitle(event.title);
           
-          // Set values in the form for update
-          this.updateForm(event);
         });
       }
       else {
@@ -66,54 +42,17 @@ export class CreateEventComponent implements OnInit {
     });
   }
 
-  setCategory(event: any): void {
-    this.generalInfoForm.patchValue({
-      category: event.category,
-      subcategory: event.subcategory
-    });
+  setGeneralForm(form: FormGroup): void {
+    this.generalInfoForm = form;
+    console.log(this.generalInfoForm);
   }
 
-  setType(type: any): void {
-    this.generalInfoForm.patchValue({type:type});
+  setPricingLocationForm(form: FormGroup): void {
+    this.pricingLocationForm = form;
   }
 
-  setDate(datetime: any): void {
-    // console.log(datetime);
-    this.generalInfoForm.patchValue({
-      datetime: {
-        occurence: datetime.occurence,
-        occurence_date: datetime.occurence_date,
-        occurence_start_date: datetime.occurence_start_date,
-        occurence_end_date: datetime.occurence_end_date,
-        start_time: datetime.start_time,
-        end_time: datetime.end_time,
-      }
-    });
-  }
-
-  setPictures(pictures: string[]): void {
-    (this.generalInfoForm.get("pictures") as FormArray).clear();
-    pictures.forEach(picture => {
-      (this.generalInfoForm.get("pictures") as FormArray).push(this.formBuilder.control(picture));
-    });
-  }
-
-  test() {
-    console.log(this.generalInfoForm.value);
-    this.generalFormSubmmited = true;
-    // console.log(this.generalInfoForm.get('datetime').invalid);
-    // console.log(this.generalInfoForm.get("pictures").invalid);
-  }
-
-  updateForm(event: any): void {
-    this.generalInfoForm.patchValue({
-      title:event.title,
-      description: event.description,
-    });
-    this.setCategory(event);
-    this.setType(event.type);
-    this.setDate(event.datetime);
-    this.setPictures(event.pictures);
+  setAdditionalInfoForm(form: FormGroup): void {
+    this.additionalInfoForm = form;
   }
 
 }

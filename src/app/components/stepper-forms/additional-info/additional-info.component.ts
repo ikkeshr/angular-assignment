@@ -1,6 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ChangeDetectorRef } from '@angular/core';
+import { MatStepper } from '@angular/material/stepper'
 
 @Component({
   selector: 'app-additional-info',
@@ -10,6 +11,8 @@ import { ChangeDetectorRef } from '@angular/core';
 export class AdditionalInfoComponent implements OnInit {
 
   @Input('eventData') eventData: any;
+  @Input('stepper') stepper: MatStepper;
+  @Output('form') emitter: EventEmitter<FormGroup> = new EventEmitter<FormGroup>();
 
   additionalInfoForm: FormGroup;
   formSubmitted: boolean = false;
@@ -29,6 +32,7 @@ export class AdditionalInfoComponent implements OnInit {
   ngOnInit(): void {
     // console.log("ngInit " + this.openMatExapandPanel);
     this.initForm();
+    this.emitter.emit(this.additionalInfoForm);
   }
 
   initForm(): void {
@@ -163,7 +167,11 @@ export class AdditionalInfoComponent implements OnInit {
 
   submit(): void {
     this.formSubmitted = true;
-    console.log(this.additionalInfoForm);
+    // console.log(this.additionalInfoForm);
+    if (this.additionalInfoForm.valid) {
+      this.emitter.emit(this.additionalInfoForm);
+      this.stepper.next();
+    }
   }
 
 }

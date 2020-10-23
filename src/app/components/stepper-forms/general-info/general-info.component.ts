@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatStepper } from '@angular/material/stepper';
 
 @Component({
   selector: 'app-general-info',
@@ -9,6 +10,8 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class GeneralInfoComponent implements OnInit {
 
   @Input('eventData') updateEvent: any;
+  @Input('stepper') stepper: MatStepper;
+  @Output('form') emitter: EventEmitter<FormGroup> = new EventEmitter<FormGroup>();
 
   generalInfoForm: FormGroup; 
   formSubmitted: boolean = false;
@@ -35,6 +38,7 @@ export class GeneralInfoComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.emitter.emit(this.generalInfoForm);
   }
 
   ngOnChanges(): void {
@@ -86,7 +90,13 @@ export class GeneralInfoComponent implements OnInit {
 
   submit(): void {
     this.formSubmitted = true;
-    console.log(this.generalInfoForm);
+    // console.log(this.generalInfoForm);
+
+    if (this.generalInfoForm.valid) {
+      this.emitter.emit(this.generalInfoForm);
+      this.stepper.next();
+    }
+    // this.stepper.next();
   }
 
 }
