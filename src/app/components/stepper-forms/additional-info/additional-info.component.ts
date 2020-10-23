@@ -46,7 +46,7 @@ export class AdditionalInfoComponent implements OnInit {
 
   ngOnChanges(): void {
     if (this.eventData) {
-      console.log(this.eventData);
+      // console.log(this.eventData);
 
       // Fill in restrictions data in form
       const restrictionFormArray = this.additionalInfoForm.get("restrictions") as FormArray;

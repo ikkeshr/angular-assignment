@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, SimpleChange, Output, EventEmitter } from '@angular/core';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import { NgxDropzoneComponent } from 'ngx-dropzone';
 
 @Component({
   selector: 'app-image-upload',

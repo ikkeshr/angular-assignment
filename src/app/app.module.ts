@@ -40,6 +40,7 @@ import { CounterComponent } from './components/counter/counter.component';
 import { CheckboxPaymentComponent } from './components/checkbox-payment/checkbox-payment.component';
 import { AdditionalInfoComponent } from './components/stepper-forms/additional-info/additional-info.component';
 import { CheckboxComponent } from './components/checkbox/checkbox.component';
+import { GeneralInfoComponent } from './components/stepper-forms/general-info/general-info.component';
 
 
 
@@ -60,7 +61,8 @@ import { CheckboxComponent } from './components/checkbox/checkbox.component';
     CounterComponent,
     CheckboxPaymentComponent,
     AdditionalInfoComponent,
-    CheckboxComponent
+    CheckboxComponent,
+    GeneralInfoComponent
   ],
   imports: [
     BrowserModule,

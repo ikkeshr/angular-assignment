@@ -54,7 +54,7 @@ export class PricingLocationComponent implements OnInit {
   // Fill in form data for update
   ngOnChanges(): void {
     if (this.eventData) {
-      console.log(this.eventData);
+      // console.log(this.eventData);
       this.venueHintDisplayState = false;
       this.formSubmitted = false; // Remove validation errors, if any
 
