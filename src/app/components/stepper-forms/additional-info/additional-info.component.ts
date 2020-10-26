@@ -90,9 +90,12 @@ export class AdditionalInfoComponent implements OnInit {
   }
 
   ngAfterViewInit(): void {
-    this.openMatExapandPanel = this.additionalInfoForm.get('special_guests').get('names').value.length > 0;
+    // this.openMatExapandPanel = this.additionalInfoForm.get('special_guests').get('names').value.length > 0;
     // this.cdRef.detectChanges();
     // console.log("ngafter: " + this.openMatExapandPanel);
+    setTimeout(() => {
+      this.openMatExapandPanel = this.additionalInfoForm.get('special_guests').get('names').value.length > 0;
+    }, 100);
   }
 
 

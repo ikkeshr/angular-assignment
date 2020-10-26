@@ -43,7 +43,7 @@ export class GeneralInfoComponent implements OnInit {
 
   ngOnChanges(): void {
     if (this.updateEvent) {
-      console.log(this.updateEvent);
+      // console.log(this.updateEvent);
 
       this.generalInfoForm.patchValue({
         title:this.updateEvent.title,

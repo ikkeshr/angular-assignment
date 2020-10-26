@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { EventService } from '../../services/event.service';
 import { Title } from '@angular/platform-browser';
-import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { ChangeDetectorRef } from '@angular/core';
+import { throwMatDialogContentAlreadyAttachedError } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-create-event',
@@ -21,7 +23,7 @@ export class CreateEventComponent implements OnInit {
     private route: ActivatedRoute,
     private eventService: EventService,
     private titleService: Title,
-    private formBuilder: FormBuilder,
+    private cdr: ChangeDetectorRef
   ) {
   }
 
@@ -43,16 +45,30 @@ export class CreateEventComponent implements OnInit {
   }
 
   setGeneralForm(form: FormGroup): void {
-    this.generalInfoForm = form;
-    console.log(this.generalInfoForm);
+    setTimeout(() => this.generalInfoForm = form, 100);
+    // this.generalInfoForm = form;
+    // this.cdr.detectChanges();
+    // console.log(this.generalInfoForm);
   }
 
   setPricingLocationForm(form: FormGroup): void {
-    this.pricingLocationForm = form;
+    // this.pricingLocationForm = form;
+    setTimeout(() => this.pricingLocationForm = form, 100);
   }
 
   setAdditionalInfoForm(form: FormGroup): void {
-    this.additionalInfoForm = form;
+    // this.additionalInfoForm = form;
+    setTimeout(() => this.additionalInfoForm = form, 100);
   }
+
+  // ngAfterViewInit() {
+  //   console.log("ngAfterViewInit");
+  //   console.log(this.generalInfoForm);
+  // }
+
+  // ngAfterContentChecked() {
+  //   console.log("ngAfterContentChecked");
+  //   console.log(this.generalInfoForm);
+  // }
 
 }

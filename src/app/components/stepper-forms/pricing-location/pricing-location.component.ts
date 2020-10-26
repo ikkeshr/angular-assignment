@@ -110,6 +110,7 @@ export class PricingLocationComponent implements OnInit {
     this.pricingLocationForm.get('payment').patchValue({ type: paymentType });
     if (paymentType === "Free") {
       this.paymentPanelOpenState = false;
+      (this.pricingLocationForm.get("payment").get("pricing") as FormArray).clear();
     } else if (paymentType == "Paid") {
       this.paymentPanelOpenState = true;
     }
@@ -152,7 +153,7 @@ export class PricingLocationComponent implements OnInit {
 
   submit() {
     this.formSubmitted = true;
-    // console.log(this.pricingLocationForm);
+    console.log(this.pricingLocationForm);
     // console.log(this.pricingLocationForm.value);
     if (this.pricingLocationForm.valid) {
       this.emitter.emit(this.pricingLocationForm);
