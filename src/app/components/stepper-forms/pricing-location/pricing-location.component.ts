@@ -153,7 +153,7 @@ export class PricingLocationComponent implements OnInit {
 
   submit() {
     this.formSubmitted = true;
-    console.log(this.pricingLocationForm);
+    // console.log(this.pricingLocationForm);
     // console.log(this.pricingLocationForm.value);
     if (this.pricingLocationForm.valid) {
       this.emitter.emit(this.pricingLocationForm);

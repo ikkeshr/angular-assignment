@@ -19,16 +19,12 @@
      <!--=============================================================================================================================================================================================================================-->
 
     <mat-step label="Summary">
-        <div class="step-form">
-            <div class="footer-btn">
-                <button type="button" mat-stroked-button matStepperPrevious color="primary">Back</button>
-                <div class="footer-right">
-                    <button type="button" mat-stroked-button color="primary">Save as template</button>
-                    <button *ngIf="!updateEvent" type="button" mat-raised-button matStepperNext color="primary">Create</button>
-                    <button *ngIf="updateEvent" type="button" mat-raised-button matStepperNext color="primary">Save</button>
-                </div>
-            </div>
-        </div>
+        <app-summary 
+            [eventData]="updateEvent"
+            [generalInfoFormValues]="(generalInfoForm) ? generalInfoForm.value : null"
+            [pricingLocationFormValues]="(pricingLocationForm) ? pricingLocationForm.value : null"
+            [additionalInfoFormValues]="(additionalInfoForm) ? additionalInfoForm.value : null"
+            ></app-summary>
     </mat-step> 
 
 </mat-horizontal-stepper>

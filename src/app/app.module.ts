@@ -41,6 +41,7 @@ import { CheckboxPaymentComponent } from './components/checkbox-payment/checkbox
 import { AdditionalInfoComponent } from './components/stepper-forms/additional-info/additional-info.component';
 import { CheckboxComponent } from './components/checkbox/checkbox.component';
 import { GeneralInfoComponent } from './components/stepper-forms/general-info/general-info.component';
+import { SummaryComponent } from './components/stepper-forms/summary/summary.component';
 
 
 
@@ -62,7 +63,8 @@ import { GeneralInfoComponent } from './components/stepper-forms/general-info/ge
     CheckboxPaymentComponent,
     AdditionalInfoComponent,
     CheckboxComponent,
-    GeneralInfoComponent
+    GeneralInfoComponent,
+    SummaryComponent
   ],
   imports: [
     BrowserModule,

@@ -93,6 +93,7 @@ export class GeneralInfoComponent implements OnInit {
     // console.log(this.generalInfoForm);
 
     if (this.generalInfoForm.valid) {
+      console.log("emitting generalInfoForm...");
       this.emitter.emit(this.generalInfoForm);
       this.stepper.next();
     }

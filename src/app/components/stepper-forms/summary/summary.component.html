@@ -1,0 +1,10 @@
+<div class="step-form">
+    <div class="footer-btn">
+        <button type="button" mat-stroked-button matStepperPrevious color="primary">Back</button>
+        <div class="footer-right">
+            <button type="button" mat-stroked-button color="primary">Save as template</button>
+            <button *ngIf="!eventData" type="button" mat-raised-button matStepperNext color="primary">Create</button>
+            <button *ngIf="eventData" type="button" mat-raised-button matStepperNext color="primary">Save</button>
+        </div>
+    </div>
+</div>
