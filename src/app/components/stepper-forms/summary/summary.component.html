@@ -1,4 +1,62 @@
 <div class="step-form">
+
+    <div class="content-wrap">
+        <div class="content-title">
+            {{ generalInfoFormValues?.title }}
+            <div class="description">{{ generalInfoFormValues?.description }}</div>
+        </div>
+        <div class="content-body">
+            <div class="content-body-section">
+                <div class="content-body-section-header">General Information</div>
+                <div class="data-wrap"><div class="data-head">Type</div><div class="data">{{ generalInfoFormValues?.type }}</div></div>
+                <div class="data-wrap"><div class="data-head">Category</div><div class="data">{{ generalInfoFormValues?.category }}, {{generalInfoFormValues?.subcategory}}</div></div>
+                <div class="data-wrap">
+                    <div class="data-head">Date</div>
+                    <div class="data">{{generalInfoFormValues?.datetime.occurence}} Event, starts on {{generalInfoFormValues?.datetime.occurence_start_date | date:'d MMM y'}} and ends on {{generalInfoFormValues?.datetime.occurence_end_date | date:'d MMM y'}}, {{generalInfoFormValues?.datetime.occurence_date}}</div>
+                </div>
+                <div class="data-wrap">
+                    <div class="data-head">Time</div>
+                    <div class="data">{{generalInfoFormValues?.datetime.start_time}} - {{generalInfoFormValues?.datetime.end_time}}</div>
+                </div>
+            </div>
+
+            <div class="content-body-section">
+                <div class="content-body-section-header">Location</div>
+                <div class="data-wrap">
+                    <div class="data-head">Address</div>
+                    <div class="data" *ngIf="pricingLocationFormValues && pricingLocationFormValues.location.address==''">{{pricingLocationFormValues?.location.city}}, {{pricingLocationFormValues?.location.venue}}</div>
+                    <div class="data" *ngIf="pricingLocationFormValues && pricingLocationFormValues.location.address!=''">{{pricingLocationFormValues?.location.address}}</div>
+                </div>
+            </div>
+
+            <div class="content-body-section">
+                <div class="content-body-section-header">Payment</div>
+                <div class="data-wrap"><div class="data-head">Type</div><div class="data">{{pricingLocationFormValues?.payment.type}}</div></div>
+                <div class="data-wrap" *ngIf="pricingLocationFormValues?.payment.type=='Paid'"><div class="data-head">Methods</div><div class="data">{{pricingLocationFormValues?.payment.methods.join(', ')}}</div></div>
+                <div class="data-wrap" *ngIf="pricingLocationFormValues?.payment.type=='Paid'">
+                    <div class="data-head">Pricings</div>
+                    <div class="data">
+                        <span *ngFor="let pricing of pricingLocationFormValues?.payment.pricing; let i=index">
+                            {{pricing.ticket_name}} ({{pricing.price | currency: getCurrencyCode(pricing.currency): 'symbol': '.0-2' }})
+                            <span *ngIf="pricingLocationFormValues?.payment.pricing.length!=i+1">, </span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-body-section">
+                <div class="content-body-section-header">Additional Information</div>
+                <div class="data-wrap"><div class="data-head">Restrictions</div><div class="data">{{ additionalInfoFormValues?.restrictions.join(', ') }}</div></div>
+                <div class="data-wrap"><div class="data-head">Attendance</div><div class="data">{{ additionalInfoFormValues?.attendance_count }} people</div></div>
+                <div class="data-wrap" *ngIf="additionalInfoFormValues?.special_guests.names.length!=0"><div class="data-head">Special Guests</div><div class="data">{{ additionalInfoFormValues?.special_guests.names.join(', ') }}</div></div>
+                <div class="data-wrap"><div class="data-head">Authorities Notified</div><div class="data">{{ additionalInfoFormValues?.authorities_notified.join(', ') }}</div></div>
+                <div class="data-wrap" *ngIf="additionalInfoFormValues?.special_guests.additional_info!==''"><div class="data-head">Additional Information</div><div class="data">{{ additionalInfoFormValues?.special_guests.additional_info }}</div></div>
+            </div>
+
+        </div>
+    </div>
+
+
     <div class="footer-btn">
         <button type="button" mat-stroked-button matStepperPrevious color="primary">Back</button>
         <div class="footer-right">

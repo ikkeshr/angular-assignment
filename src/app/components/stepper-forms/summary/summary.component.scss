@@ -1,1 +1,45 @@
 @import "../stepper.scss";
+
+.content-wrap {
+    // width: 100%;
+    padding: 25px 0px;
+
+    .content-title {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 20px;
+
+        .description {
+            font-size: 14px;
+            max-width: 500px;
+            text-align: center;
+            padding-top: 8px;
+        }
+    }
+
+    .content-body {
+        // padding: 25px 0px;
+
+        .content-body-section {
+            // width: 100%;
+            border: solid 1px var(--theme-color-light);
+            padding: 20px 10px; 
+            margin: 20px 0px;
+        }
+        .content-body-section-header {
+            width: 100%;
+            text-align: center;
+            color: var(--theme-color);
+            font-size: 18px;
+        }
+        .data-wrap {
+            display: flex;
+            padding: 2px 0px;
+            .data-head {
+                color: var(--theme-color);
+                margin-right: 10px;
+            }
+        }
+    }
+}

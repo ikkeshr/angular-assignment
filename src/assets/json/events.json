@@ -100,7 +100,7 @@
             ],
             "methods": [ "Mastercard", "Paypal", "Discover"]
         },
-        "restrictions": ["None", "Children Only"],
+        "restrictions": ["No Children", "Senior Citizen"],
         "attendance_count": 100,
         "special_guests": {
             "names": ["Special Guest Three"],
