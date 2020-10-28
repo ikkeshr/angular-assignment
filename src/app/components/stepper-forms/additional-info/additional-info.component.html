@@ -80,13 +80,13 @@
             </div>
         </div>
 
-        <div class="step-form-body-section" [class.error]="authoritiesValid()">
+        <div class="step-form-body-section" [class.error]="additionalInfoForm.get('authorities_notified').invalid && formSubmitted">
             <div class="step-form-body-section-header">
                 <div class="title">
                     <span class="number">12</span>
                     <span>Any Authorities need to be notified?</span>
                 </div>
-                <div class="section-error" *ngIf="authoritiesValid()">Please select an Authority to notify</div>
+                <div class="section-error" *ngIf="additionalInfoForm.get('authorities_notified').invalid && formSubmitted">Please select an Authority to notify</div>
             </div>
             <div class="step-form-body-section-body">
                 <app-toggle 
@@ -114,7 +114,7 @@
     <div class="footer-btn">
         <button type="button" mat-stroked-button matStepperPrevious color="primary">Back</button>
         <div class="footer-right">
-            <button type="button" mat-raised-button color="primary" (click)="submit()">Next</button>
+            <button type="button" mat-raised-button matStepperNext color="primary" (click)="submit()">Next</button>
         </div>
     </div>
 </form>

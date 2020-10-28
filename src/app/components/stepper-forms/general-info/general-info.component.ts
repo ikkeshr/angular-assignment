@@ -10,7 +10,6 @@ import { MatStepper } from '@angular/material/stepper';
 export class GeneralInfoComponent implements OnInit {
 
   @Input('eventData') updateEvent: any;
-  @Input('stepper') stepper: MatStepper;
   @Output('form') emitter: EventEmitter<FormGroup> = new EventEmitter<FormGroup>();
 
   generalInfoForm: FormGroup; 
@@ -92,11 +91,10 @@ export class GeneralInfoComponent implements OnInit {
     this.formSubmitted = true;
     // console.log(this.generalInfoForm);
 
-    if (this.generalInfoForm.valid) {
-      console.log("emitting generalInfoForm...");
-      this.emitter.emit(this.generalInfoForm);
-      this.stepper.next();
-    }
+    // if (this.generalInfoForm.valid) {
+    //   this.emitter.emit(this.generalInfoForm);
+    //   this.stepper.next();
+    // }
     // this.stepper.next();
   }
 

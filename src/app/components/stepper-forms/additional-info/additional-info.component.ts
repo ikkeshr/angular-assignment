@@ -1,7 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { ChangeDetectorRef } from '@angular/core';
-import { MatStepper } from '@angular/material/stepper'
 
 @Component({
   selector: 'app-additional-info',
@@ -11,7 +10,6 @@ import { MatStepper } from '@angular/material/stepper'
 export class AdditionalInfoComponent implements OnInit {
 
   @Input('eventData') eventData: any;
-  @Input('stepper') stepper: MatStepper;
   @Output('form') emitter: EventEmitter<FormGroup> = new EventEmitter<FormGroup>();
 
   additionalInfoForm: FormGroup;
@@ -44,7 +42,7 @@ export class AdditionalInfoComponent implements OnInit {
         pictures: this.formBuilder.array([]),
         additional_info: ''
       }),
-      authorities_notified: this.formBuilder.array([], Validators.required)
+      authorities_notified: this.formBuilder.array([], this.validateAuthoritiesNotified)
     });
   }
 
@@ -159,22 +157,27 @@ export class AdditionalInfoComponent implements OnInit {
       this.showAuthoritiesPanel = false;
       (this.additionalInfoForm.get('authorities_notified') as FormArray).clear();
     }
-      
-  }
 
-  authoritiesValid(): boolean {
-    return (this.showAuthoritiesPanel 
-              && this.additionalInfoForm.get('authorities_notified').value.length < 1 
-              && this.formSubmitted);
+    //Run Form array's validation check
+    (this.additionalInfoForm.get('authorities_notified') as FormArray).enable();
   }
 
   submit(): void {
     this.formSubmitted = true;
     // console.log(this.additionalInfoForm);
-    if (this.additionalInfoForm.valid) {
-      this.emitter.emit(this.additionalInfoForm);
-      this.stepper.next();
+    // if (this.additionalInfoForm.valid) {
+    //   this.emitter.emit(this.additionalInfoForm);
+    //   this.stepper.next();
+    // }
+  }
+
+  validateAuthoritiesNotified: ValidatorFn = (formArray: FormArray): ValidationErrors | null => {
+    console.log("validateAuthotities");
+    if (this.showAuthoritiesPanel && formArray.value.length < 1) {
+      return { authoritiesRequired: true };
     }
+    
+    return null;
   }
 
 }

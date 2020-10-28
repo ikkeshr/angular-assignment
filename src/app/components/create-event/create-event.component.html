@@ -1,19 +1,19 @@
 
-<mat-horizontal-stepper linear style="border-radius:15px;" #stepper>
+<mat-horizontal-stepper linear style="border-radius:15px;">
 
     <mat-step label="General Information" [stepControl]="generalInfoForm">
-        <app-general-info [eventData]="updateEvent" [stepper]="stepper" (form)="setGeneralForm($event)"></app-general-info>
+        <app-general-info [eventData]="updateEvent" (form)="setGeneralForm($event)"></app-general-info>
     </mat-step>
 
     <!--=============================================================================================================================================================================================================================-->
     <mat-step label="Pricing and Location" [stepControl]="pricingLocationForm">
-        <app-pricing-location [eventData]="updateEvent" [stepper]="stepper" (form)="setPricingLocationForm($event)"></app-pricing-location>
+        <app-pricing-location [eventData]="updateEvent" (form)="setPricingLocationForm($event)"></app-pricing-location>
     </mat-step>
 
     <!--=============================================================================================================================================================================================================================-->
 
     <mat-step label="Additional Information" [stepControl]="additionalInfoForm">
-        <app-additional-info [eventData]="updateEvent" [stepper]="stepper" (form)="setAdditionalInfoForm($event)"></app-additional-info>
+        <app-additional-info [eventData]="updateEvent" (form)="setAdditionalInfoForm($event)"></app-additional-info>
     </mat-step>
 
      <!--=============================================================================================================================================================================================================================-->

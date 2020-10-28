@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-summary',
@@ -19,7 +19,8 @@ export class SummaryComponent implements OnInit {
     
   }
 
-  ngOnChanges(): void {
+  ngOnChanges(changes: SimpleChanges): void {
+    // console.log(changes);
     // console.log(this.pricingLocationFormValues);
     // if (this.eventData) {
     //   //Test Data

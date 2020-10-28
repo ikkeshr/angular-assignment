@@ -1,9 +1,6 @@
-import { ɵNullViewportScroller } from '@angular/common';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { MatSelectChange } from '@angular/material/select';
-import { UrlHandlingStrategy } from '@angular/router';
-import { MatStepper } from '@angular/material/stepper';
 
 @Component({
   selector: 'app-pricing-location',
@@ -13,7 +10,6 @@ import { MatStepper } from '@angular/material/stepper';
 export class PricingLocationComponent implements OnInit {
 
   @Input('eventData') eventData: any;
-  @Input('stepper') stepper: MatStepper;
   @Output('form') emitter: EventEmitter<FormGroup> = new EventEmitter<FormGroup>();
 
   pricingLocationForm: FormGroup;
@@ -155,10 +151,10 @@ export class PricingLocationComponent implements OnInit {
     this.formSubmitted = true;
     // console.log(this.pricingLocationForm);
     // console.log(this.pricingLocationForm.value);
-    if (this.pricingLocationForm.valid) {
-      this.emitter.emit(this.pricingLocationForm);
-      this.stepper.next();
-    }
+    // if (this.pricingLocationForm.valid) {
+    //   this.emitter.emit(this.pricingLocationForm);
+    //   this.stepper.next();
+    // }
   }
 
   // Cross field Validator
