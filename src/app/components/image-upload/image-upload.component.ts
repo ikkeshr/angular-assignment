@@ -50,6 +50,10 @@ export class ImageUploadComponent implements OnInit {
 
   onSelect(event) {
     // console.log(event);
+    if (event.rejectedFiles.length > 0) {
+      this.openSnackBar("Please select an Image");
+      return;
+    }
     if ( (this.files.length + event.addedFiles.length) > this.maxImg ) {
       this.openSnackBar("Cannot add more pictures");
       return;
