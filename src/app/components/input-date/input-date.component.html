@@ -38,14 +38,14 @@
         <mat-form-field appearance="outline" class="date-input-range-item">
             <mat-label>Starts</mat-label>
             <input matInput [ngxTimepicker]="start_time" autocomplete="off" [value]="start_occ_time">
-            <mat-icon matSuffix>schedule</mat-icon>
+            <ngx-material-timepicker-toggle matSuffix [for]="start_time"></ngx-material-timepicker-toggle>
             <ngx-material-timepicker #start_time (timeSet)="startTimeChange($event)"></ngx-material-timepicker>
           </mat-form-field>
 
           <mat-form-field appearance="outline" class="date-input-range-item">
             <mat-label>Ends By</mat-label>
-            <input matInput [ngxTimepicker]="end_time" autocomplete="off"  [value]="end_occ_time" [min]="start_occ_time">
-            <mat-icon matSuffix>schedule</mat-icon>
+            <input #input_end_time matInput [ngxTimepicker]="end_time" autocomplete="off"  [value]="end_occ_time" [min]="start_occ_time">
+            <ngx-material-timepicker-toggle matSuffix [for]="end_time"></ngx-material-timepicker-toggle>
             <ngx-material-timepicker #end_time (timeSet)="endTimeChange($event)"></ngx-material-timepicker>
           </mat-form-field>
     </div>

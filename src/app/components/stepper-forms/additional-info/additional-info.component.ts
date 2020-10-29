@@ -172,7 +172,6 @@ export class AdditionalInfoComponent implements OnInit {
   }
 
   validateAuthoritiesNotified: ValidatorFn = (formArray: FormArray): ValidationErrors | null => {
-    console.log("validateAuthotities");
     if (this.showAuthoritiesPanel && formArray.value.length < 1) {
       return { authoritiesRequired: true };
     }
