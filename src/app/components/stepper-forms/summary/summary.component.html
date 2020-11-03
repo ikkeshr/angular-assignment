@@ -18,6 +18,10 @@
                     <div class="data-head">Time</div>
                     <div class="data">{{generalInfoFormValues?.datetime.start_time}} - {{generalInfoFormValues?.datetime.end_time}}</div>
                 </div>
+                <div style="display:flex">
+                    <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of generalInfoFormValues?.pictures" [file]="f" [removable]="false" (removed)="onRemove(f)">
+                    </ngx-dropzone-image-preview>
+                </div>
             </div>
 
             <div class="content-body-section">

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
+import { Image } from '../../../helpers/image';
 
 @Component({
   selector: 'app-summary',
@@ -20,48 +21,19 @@ export class SummaryComponent implements OnInit {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    // console.log(changes);
-    // console.log(this.pricingLocationFormValues);
-    // if (this.eventData) {
-    //   //Test Data
-    //   console.log(this.eventData);
-    //   this.generalInfoFormValues = {
-    //     category: this.eventData.category,
-    //     subcategory: this.eventData.subcategory,
-    //     type: this.eventData.type,
-    //     title: this.eventData.title,
-    //     description: this.eventData.description,
-    //     datetime: {
-    //       occurence: this.eventData.datetime.occurence,
-    //       occurence_date: this.eventData.datetime.occurence_date,
-    //       occurence_start_date: this.eventData.datetime.occurence_start_date,
-    //       occurence_end_date: this.eventData.datetime.occurence_end_date,
-    //       start_time: this.eventData.datetime.start_time,
-    //       end_time: this.eventData.datetime.end_time
-    //     },
-    //     pictures: this.eventData.pictures
-    //   }
+    // if (this.generalInfoFormValues) {
+    //   console.log(this.generalInfoFormValues.pictures);
 
-    //   this.pricingLocationFormValues = {
-    //     location: {
-    //       city: this.eventData.location.City,
-    //       venue: this.eventData.location.Venue,
-    //       address: this.eventData.location.Address
-    //     },
-    //     payment: {
-    //       type: this.eventData.payment.type,
-    //       pricings: this.eventData.payment.pricing,
-    //       methods: this.eventData.payment.methods
-    //     }
-    //   }
-
-    //   this.additionalInfoFormValues = {
-    //     restrictions: this.eventData.restrictions,
-    //     attendance_count: this.eventData.attendance_count,
-    //     special_guests: this.eventData.special_guests,
-    //     authorities_notified: this.eventData.authorities_notified
-    //   }
+    //   let generalFormImgsUrl: any[] = [];
+    //   let fileReader: FileReader = new FileReader();
+    //   fileReader.onload = () => { 
+    //     generalFormImgsUrl.push(fileReader.result)
+    //   };
+    //   this.generalInfoFormValues.pictures.forEach(p => {
+    //     fileReader.readAsDataURL(p); //Error here
+    //   });
     // }
+    // console.log(changes);
 
   }
 

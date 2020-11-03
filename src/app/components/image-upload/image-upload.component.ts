@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, SimpleChange, Output, EventEmitter } from '@angular/core';
 import {MatSnackBar} from '@angular/material/snack-bar';
-import { NgxDropzoneComponent } from 'ngx-dropzone';
+
 
 @Component({
   selector: 'app-image-upload',
@@ -71,7 +71,7 @@ export class ImageUploadComponent implements OnInit {
   emitValues(): void {
     const pictures = this.files.map(f => f.name);
     // console.log(pictures);
-    this.emitter.emit(pictures);
+    this.emitter.emit(this.files);
   }
 
 }

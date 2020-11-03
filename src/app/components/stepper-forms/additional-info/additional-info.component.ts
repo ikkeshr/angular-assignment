@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { ChangeDetectorRef } from '@angular/core';
+import { Image } from '../../../helpers/image';
 
 @Component({
   selector: 'app-additional-info',
@@ -74,6 +75,14 @@ export class AdditionalInfoComponent implements OnInit {
       // Fill in special guests pictures in form
       this.setGuestImages(this.eventData.special_guests.pictures);
 
+      let img: Image = new Image();
+      (this.additionalInfoForm.get('special_guests').get('pictures') as FormArray).clear();
+      this.eventData.special_guests.pictures.forEach(p => {
+        img.imgUrlToFile(p).then(f => {
+          (this.additionalInfoForm.get('special_guests').get('pictures') as FormArray).push(this.formBuilder.control(f));
+        });
+      });
+
       // Fill in authorities notifies in form
       const authorityNotifiedFormArray: FormArray =  this.additionalInfoForm.get('authorities_notified') as FormArray;
       authorityNotifiedFormArray.clear();
@@ -129,7 +138,7 @@ export class AdditionalInfoComponent implements OnInit {
     this.openMatExapandPanel = this.additionalInfoForm.get('special_guests').get('names').value.length > 0;
   }
 
-  setGuestImages(pictures: string[]): void {
+  setGuestImages(pictures: File[]): void {
     const specialGuestsPicturesFormArray = this.additionalInfoForm.get('special_guests').get('pictures') as FormArray;
     specialGuestsPicturesFormArray.clear();
     pictures.forEach(p => specialGuestsPicturesFormArray.push(this.formBuilder.control(p)));
@@ -164,7 +173,7 @@ export class AdditionalInfoComponent implements OnInit {
 
   submit(): void {
     this.formSubmitted = true;
-    // console.log(this.additionalInfoForm);
+    console.log(this.additionalInfoForm);
     // if (this.additionalInfoForm.valid) {
     //   this.emitter.emit(this.additionalInfoForm);
     //   this.stepper.next();

@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatStepper } from '@angular/material/stepper';
+import { Image } from '../../../helpers/image';
 
 @Component({
   selector: 'app-general-info',
@@ -51,8 +52,27 @@ export class GeneralInfoComponent implements OnInit {
       this.setCategory(this.updateEvent);
       this.setType(this.updateEvent.type);
       this.setDate(this.updateEvent.datetime);
-      this.setPictures(this.updateEvent.pictures);
+      // this.setPictures(this.updateEvent.pictures);
+
+      // Set pictures in the form. url converted to File obj
+      let img: Image = new Image();
+      (this.generalInfoForm.get("pictures") as FormArray).clear();
+      this.updateEvent.pictures.forEach(p => {
+        img.imgUrlToFile(p).then(f => {
+          (this.generalInfoForm.get("pictures") as FormArray).push(this.formBuilder.control(f));
+        });
+      });
+      
     }
+  }
+
+  async imgUrlToFile(imgUrl: string): Promise<File> {
+    const imgName = imgUrl.substring(imgUrl.lastIndexOf('/') + 1);
+    const response = await fetch(imgUrl); // param: url/location
+    const blob = await response.blob();
+    const file = new File([blob], imgName, {type: blob.type});
+    // console.log(file);
+    return file;
   }
 
   setCategory(event: any): void {
@@ -80,7 +100,7 @@ export class GeneralInfoComponent implements OnInit {
     });
   }
 
-  setPictures(pictures: string[]): void {
+  setPictures(pictures: File[]): void {
     (this.generalInfoForm.get("pictures") as FormArray).clear();
     pictures.forEach(picture => {
       (this.generalInfoForm.get("pictures") as FormArray).push(this.formBuilder.control(picture));
